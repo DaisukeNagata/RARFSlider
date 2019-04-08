@@ -1,0 +1,27 @@
+PODS:
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - RARFSlider (0.1.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+  - RARFSlider (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  RARFSlider:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  RARFSlider: 80a83a0ab971d6f28d8e55399001e774ae295825
+
+PODFILE CHECKSUM: 0ce515ab4d773c7dc5dd70576ab40a71163ccb05
+
+COCOAPODS: 1.7.0.beta.2

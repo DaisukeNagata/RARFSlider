@@ -1,0 +1,6 @@
+framework module RARFSlider {
+  umbrella header "RARFSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}
