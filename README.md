@@ -8,14 +8,14 @@
 [![License](https://img.shields.io/cocoapods/l/RARFSlider.svg?style=flat)](https://cocoapods.org/pods/RARFSlider)
 [![Platform](https://img.shields.io/cocoapods/p/RARFSlider.svg?style=flat)](https://cocoapods.org/pods/RARFSlider)
 
-## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Example
+<img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680">
 
 ## Requirements
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Installation
-
 RARFSlider is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -23,7 +23,7 @@ it, simply add the following line to your Podfile:
 pod 'RARFSlider'
 ```
 
-## Example
+## Code
 
 ```ruby
 import UIKit
