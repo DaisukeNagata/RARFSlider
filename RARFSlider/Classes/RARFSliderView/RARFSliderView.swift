@@ -13,10 +13,11 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak public var picBt: UIButton!
     @IBOutlet weak public var slider: UISlider!
     @IBOutlet weak public var timeLabel: UILabel!
-    @IBOutlet weak public var durationLabel: UILabel!
     @IBOutlet weak public var trimButton: UIButton!
+    @IBOutlet weak public var durationLabel: UILabel!
     @IBOutlet weak public var thumnaiIImageView: UIImageView!
 
     public var url: URL?
@@ -46,6 +47,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         loadNib()
         slider.addTarget(self, action: #selector(onChange(change:)), for: .valueChanged)
+        picBt.addTarget(self, action: #selector(pickBt), for: .touchUpInside)
         trimButton.addTarget(self, action: #selector(trimBt), for: .touchUpInside)
 
         CommonStructure.swipePanGesture = UIPanGestureRecognizer(target: self, action:#selector(panTapped))
@@ -130,6 +132,12 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let endTime = CMTime(seconds: Float64(timeSet), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         mutableComposition.aVAssetMerge(startAVAsset: avAsset, startDuration: startTime, endDuration: endTime, vc: vc)
         self.setNeedsDisplay()
+    }
+
+    @objc func pickBt() {
+        let imagePickerModel = RARFImagePickerModel()
+        guard let vc = vc else { return }
+        imagePickerModel.mediaSegue(vc: vc, bool: true)
     }
 
     // Duration and origin

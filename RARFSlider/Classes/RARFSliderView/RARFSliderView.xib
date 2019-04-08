@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RARFSliderView" customModule="RARFSlider" customModuleProvider="target">
             <connections>
                 <outlet property="durationLabel" destination="qiJ-0E-e7U" id="f2B-nR-Ua6"/>
+                <outlet property="picBt" destination="Sso-NX-aj3" id="F0a-Gg-ygj"/>
                 <outlet property="slider" destination="eLB-hK-AUd" id="oPr-HI-Uqq"/>
                 <outlet property="thumnaiIImageView" destination="cJ2-8q-jhB" id="ybe-SQ-Tac"/>
                 <outlet property="timeLabel" destination="DqO-xM-0tb" id="A7L-jQ-Dqr"/>
@@ -54,6 +54,10 @@
                     <rect key="frame" x="164" y="488" width="47" height="30"/>
                     <state key="normal" title="Button"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sso-NX-aj3">
+                    <rect key="frame" x="172.5" y="430" width="30" height="30"/>
+                    <state key="normal" title="Pic"/>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="cyl-ej-IZV" secondAttribute="bottom" constant="149" id="3wE-xE-rHI"/>
@@ -63,8 +67,10 @@
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="top" secondItem="cJ2-8q-jhB" secondAttribute="bottom" constant="24" id="VR9-PM-HIT"/>
                 <constraint firstAttribute="trailing" secondItem="eLB-hK-AUd" secondAttribute="trailing" id="bcs-p3-NTd"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="leading" secondItem="cJ2-8q-jhB" secondAttribute="leading" id="jCR-jq-bKD"/>
+                <constraint firstItem="Sso-NX-aj3" firstAttribute="centerY" secondItem="cdk-ZE-bND" secondAttribute="centerY" constant="111.5" id="vUQ-WZ-s9D"/>
                 <constraint firstItem="cyl-ej-IZV" firstAttribute="top" secondItem="eLB-hK-AUd" secondAttribute="bottom" constant="82" id="x2G-vj-xfy"/>
                 <constraint firstAttribute="bottom" secondItem="eLB-hK-AUd" secondAttribute="bottom" constant="261" id="xBu-D1-kA4"/>
+                <constraint firstItem="Sso-NX-aj3" firstAttribute="centerX" secondItem="cdk-ZE-bND" secondAttribute="centerX" id="zkm-4j-3xP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
