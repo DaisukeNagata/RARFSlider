@@ -52,6 +52,16 @@
                ReferencedContainer = "container:RARFSlider.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BBBA26E4225B64E2008AACFE"
+               BuildableName = "RARFSlider_ExampleUITests.xctest"
+               BlueprintName = "RARFSlider_ExampleUITests"
+               ReferencedContainer = "container:RARFSlider.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
