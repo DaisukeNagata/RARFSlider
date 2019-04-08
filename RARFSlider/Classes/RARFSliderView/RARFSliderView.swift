@@ -21,7 +21,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet weak public var thumnaiIImageView: UIImageView!
 
     public var url: URL?
-    public let preView = UIView()
+    public var preView = UIView()
     public var vc: UIViewController?
     public var sideWhide: CGFloat = 1.0
     public var borderWidth: CGFloat = 1.0
