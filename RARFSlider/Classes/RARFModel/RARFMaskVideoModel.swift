@@ -36,9 +36,9 @@ public final class RARFMaskVideoModel: NSObject {
         case 0..<5:
             return CaseNumber.five.rawValue
         case 5..<10:
-            return CaseNumber.three.rawValue
+            return CaseNumber.four.rawValue
         case 10..<15:
-            return CaseNumber.two.rawValue
+            return CaseNumber.three.rawValue
         default:
             break
         }

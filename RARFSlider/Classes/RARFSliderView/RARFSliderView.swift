@@ -33,7 +33,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     private var startValue: Float?
     private var nowTime = CGFloat()
     private var currentValue = Float()
-    private var setVideoModel = RARFMaskVideoModel()
     private var keyValueObservations = [NSKeyValueObservation]()
     private var mutableComposition = RARFMutableComposition()
 
@@ -79,10 +78,11 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let position: CGPoint = sender.location(in: self)
 
         if lineDashView.isHidden == true { self.addSubview(preView) }
+        lineDashView.isHidden = false
+
         // Slider
         let value = Float64(position.x) * (self.aVPlayerModel.videoDurationTime() / Float64(self.frame.width))
         DispatchQueue.main.async {
-            self.lineDashView.isHidden = false
             //Gesture
             self.gestureObject.endPoint = self.lineDashView.frame.origin
             self.gestureObject.endFrame = self.lineDashView.frame

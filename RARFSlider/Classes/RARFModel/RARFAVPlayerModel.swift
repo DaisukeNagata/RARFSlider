@@ -35,13 +35,12 @@ public final class RARFAVPlayerModel {
     }
 
     private func thumbnailFromVideo(videoUrl: URL, time: CMTime) -> UIImage {
-        let asset: AVAsset = AVAsset(url: videoUrl) as AVAsset
+        let asset = AVAsset(url: videoUrl)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         imgGenerator.appliesPreferredTrackTransform = true
         do{
             let cgImage = try imgGenerator.copyCGImage(at: time, actualTime: nil)
-            let uiImage = UIImage(cgImage: cgImage)
-            return uiImage
+            return UIImage(cgImage: cgImage)
         } catch let error{ print(error,"error") }
 
         return UIImage()

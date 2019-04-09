@@ -12,10 +12,7 @@ import MobileCoreServices
 
 public final class RARFImagePickerModel: NSObject {
 
-    private var vcs: UIViewController?
-
     public func mediaSegue(vc: UIViewController,bool: Bool) {
-        vcs = vc
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             let pic = UIImagePickerController()
             if bool == true { pic.mediaTypes = [kUTTypeMovie as String] }
