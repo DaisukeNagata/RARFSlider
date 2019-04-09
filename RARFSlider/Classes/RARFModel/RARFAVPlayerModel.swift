@@ -15,18 +15,18 @@ public final class RARFAVPlayerModel {
     var videoPlayer: AVPlayer!
     var playerItem: AVPlayerItem?
 
-    func currentTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.currentTime())!) }
-
-    func videoDurationTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.duration)!) }
-
-    func videoSeek(change: Float) { videoPlayer.seek(to:CMTimeMakeWithSeconds(Float64(change), preferredTimescale: Int32(NSEC_PER_SEC))) }
-
     public func video(url: URL) {
         self.url = url
         let avAsset = AVURLAsset(url: url, options: nil)
         playerItem = AVPlayerItem(asset: avAsset)
         videoPlayer = AVPlayer(playerItem: playerItem)
     }
+
+    func currentTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.currentTime())!) }
+
+    func videoDurationTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.duration)!) }
+
+    func videoSeek(change: Float) { videoPlayer.seek(to:CMTimeMakeWithSeconds(Float64(change), preferredTimescale: Int32(NSEC_PER_SEC))) }
 
     func videoImageViews(nowTime: Float64) -> UIImage {
         let interval = CMTime(seconds: nowTime, preferredTimescale: CMTimeScale(Int32(NSEC_PER_SEC)))

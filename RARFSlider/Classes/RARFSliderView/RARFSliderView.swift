@@ -33,6 +33,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     private var startValue: Float?
     private var nowTime = CGFloat()
     private var currentValue = Float()
+    private var setVideoModel = RARFMaskVideoModel()
     private var keyValueObservations = [NSKeyValueObservation]()
     private var mutableComposition = RARFMutableComposition()
 

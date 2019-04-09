@@ -10,7 +10,7 @@ import UIKit
 
 enum TouchFlag { case touchSideLeft, touchSideRight }
 
-public final class RARFGestureObject: UIView {
+final class RARFGestureObject: UIView {
 
     var endPoint = CGPoint()
     var endFrame = CGRect()
