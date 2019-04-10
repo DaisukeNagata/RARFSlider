@@ -11,12 +11,13 @@ import Photos
 import MediaPlayer
 import MobileCoreServices
 
-class RARFMutableComposition: NSObject {
+final class RARFMutableComposition: NSObject {
 
-    let mixComposition = AVMutableComposition()
-    var vc = UIViewController()
+    private var vc = UIViewController()
+    private var alert = RARFAlertObject()
+    private let mixComposition = AVMutableComposition()
 
-    func aVAssetMerge(startAVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime, vc: UIViewController) {
+    func aVAssetMerge(vc: UIViewController, title: String,  startAVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime) {
         self.vc = vc
         guard let firstTrack = mixComposition.addMutableTrack(withMediaType: .video,
                                                               preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
@@ -41,47 +42,80 @@ class RARFMutableComposition: NSObject {
         mainCompositions.frameDuration = CMTimeMake(value: 1, timescale: 30)
         mainCompositions.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 
-        aVAssetExportSet(mainComposition: mainCompositions)
+        aVAssetExportSet(title: title, mainComposition: mainCompositions)
     }
 
-    func aVAssetExportSet(mainComposition: AVMutableVideoComposition) {
+    func aVAssetMerge(views: UIViewController, title: String, aVAsset: AVAsset, aVAssetSecound:AVAsset, startDuration: CMTime, endDuration: CMTime) {
+        guard let firstTrack = mixComposition.addMutableTrack(withMediaType: .video,
+                                                              preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
+        do {
+            try firstTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: endDuration),
+                                           of: aVAsset.tracks(withMediaType: .video)[0],
+                                           at: CMTime.zero)
+        } catch let error {
+            print("Failed to load second track", error)
+            return
+        }
+
+        guard let secondTrack = mixComposition.addMutableTrack(withMediaType: .video,
+                                                               preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
+        do {
+            try secondTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: endDuration),
+                                            of: aVAssetSecound.tracks(withMediaType: .video)[0],
+                                            at: aVAsset.duration)
+        } catch let error {
+            print("Failed to load second track", error)
+            return
+        }
+
+        let mainInstruction = AVMutableVideoCompositionInstruction()
+        mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: CMTimeAdd (aVAsset.duration, aVAssetSecound.duration))
+
+        let firstInstruction = videoCompositionInstruction(firstTrack, asset: aVAsset)
+        firstInstruction.setOpacity(0.0, at: aVAsset.duration)
+
+        let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAssetSecound)
+        mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
+
+        let mainComposition = AVMutableVideoComposition()
+        mainComposition.instructions = [mainInstruction]
+        mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+        mainComposition.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+
+        aVAssetExportSet(title: title, mainComposition: mainComposition)
+    }
+
+    func aVAssetExportSet(title: String, mainComposition: AVMutableVideoComposition) {
 
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
+
         let date = dateFormatter.string(from: Date())
         let num = arc4random() % 100000000
         let url = documentDirectory.appendingPathComponent(num.description + "\(date)temp.mp4")
 
         guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else { return }
+
         exporter.outputURL = url
         exporter.outputFileType = AVFileType.mov
         exporter.shouldOptimizeForNetworkUse = true
         exporter.videoComposition = mainComposition
         exporter.exportAsynchronously() {
-            self.alertSave(views: self.vc, exporter: exporter, url: url)
+            let rARFDef = RARFUserDefaults()
+            rARFDef.saveMethod(url: exporter.outputURL)
+            self.alert.alertSave(views: self.vc, title: title,exporter: exporter, composition: self, url: url)
         }
     }
 
     func exportDidFinish(_ session: AVAssetExportSession, url: URL) {
-
         guard session.status == AVAssetExportSession.Status.completed, let outputURL = session.outputURL else { return }
-
         let saveVideoToPhotos = {
             PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) {
                 saved, error in
-                if saved == true {
-                if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-                    let pic = UIImagePickerController()
-                    pic.mediaTypes = [kUTTypeMovie as String]
-                    pic.allowsEditing = false
-                    pic.delegate = (self.vc as! UIImagePickerControllerDelegate & UINavigationControllerDelegate)
-                    self.vc.present(pic, animated: true)
-                    }
-                } else {
-                    self.alertSave(views: self.vc)
-                }
+                if saved == false { self.alert.alertSave(views: self.vc) }
             }
         }
 
@@ -121,8 +155,8 @@ class RARFMutableComposition: NSObject {
 
         let transform = assetTrack.preferredTransform
         let assetInfo = orientationFromTransform(transform)
-
         var scaleToFitRatio = UIScreen.main.bounds.width / assetTrack.naturalSize.width
+
         if assetInfo.isPortrait {
             scaleToFitRatio = UIScreen.main.bounds.width / assetTrack.naturalSize.height
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
@@ -131,6 +165,7 @@ class RARFMutableComposition: NSObject {
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             var concat = assetTrack.preferredTransform.concatenating(scaleFactor)
                 .concatenating(CGAffineTransform(translationX: 0, y: 0))
+    
             if assetInfo.orientation == .down {
                 let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                 let windowBounds = UIScreen.main.bounds
@@ -141,45 +176,5 @@ class RARFMutableComposition: NSObject {
             instruction.setTransform(concat, at: CMTime.zero)
         }
         return instruction
-    }
-
-    func alertSave(views: UIViewController ,exporter: AVAssetExportSession ,url: URL) {
-        let alertController = UIAlertController(title: NSLocalizedString("Save", comment: ""), message: "", preferredStyle: .alert)
-        let stringAttributes: [NSAttributedString.Key : Any] = [
-            .foregroundColor : UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0),
-            .font : UIFont.systemFont(ofSize: 22.0)
-        ]
-        let string = NSAttributedString(string: alertController.title!, attributes:stringAttributes)
-        alertController.setValue(string, forKey: "attributedTitle")
-        alertController.view.tintColor = UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0)
-        let noBt = UIAlertAction(title: "No", style: .default) {
-            action in
-            alertController.dismiss(animated: true, completion: nil)
-        }
-        let okBt = UIAlertAction(title: "OK", style: .default) {
-            action in
-            alertController.dismiss(animated: true, completion: nil)
-            DispatchQueue.main.async { self.exportDidFinish(exporter, url: url)}
-        }
-         alertController.addAction(noBt)
-         alertController.addAction(okBt)
-         views.present(alertController, animated: true, completion: nil)
-    }
-    
-    func alertSave(views: UIViewController) {
-        let alertController = UIAlertController(title: NSLocalizedString("Faled", comment: ""), message: "", preferredStyle: .alert)
-        let stringAttributes: [NSAttributedString.Key : Any] = [
-            .foregroundColor : UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0),
-            .font : UIFont.systemFont(ofSize: 22.0)
-        ]
-        let string = NSAttributedString(string: alertController.title!, attributes:stringAttributes)
-        alertController.setValue(string, forKey: "attributedTitle")
-        alertController.view.tintColor = UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0)
-        let okBt = UIAlertAction(title: "OK", style: .default) {
-            action in
-            alertController.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(okBt)
-        views.present(alertController, animated: true, completion: nil)
     }
 }
