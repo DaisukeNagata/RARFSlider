@@ -11,8 +11,8 @@ import AVFoundation
 
 public final class RARFMaskVideoModel: NSObject {
 
-    private var height = CGFloat()
-    private var heightY = CGFloat()
+    private var height: CGFloat?
+    private var heightY: CGFloat?
     private var numberOfFrames = 1.0
     private var duration: Float64 = 0.0
     private var thumbnailViews = [UIImageView]()
@@ -97,12 +97,12 @@ public final class RARFMaskVideoModel: NSObject {
             for image in images {
                 let imageViews = UIImageView()
                 imageViews.image = image
-                imageViews.image = image.ResizeUIImage(width: CGFloat(width), height: self.height)
+                imageViews.image = image.ResizeUIImage(width: CGFloat(width), height: self.height ?? CGFloat())
                 imageViews.clipsToBounds = true
                 imageViews.frame = CGRect(x: xPos,
-                                          y: self.heightY,
+                                          y: self.height ?? CGFloat(),
                                           width: width,
-                                          height: self.height)
+                                          height: self.height ?? CGFloat())
                 sliderView.addSubview(imageViews)
                 xPos += CGFloat(width)
             }

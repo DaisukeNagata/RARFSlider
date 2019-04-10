@@ -31,6 +31,7 @@ public final class RARFAVPlayerModel {
     func videoImageViews(nowTime: Float64) -> UIImage {
         let interval = CMTime(seconds: nowTime, preferredTimescale: CMTimeScale(Int32(NSEC_PER_SEC)))
         guard  let url = url else { return UIImage() }
+
         return  thumbnailFromVideo(videoUrl: url, time: interval)
     }
 
@@ -38,10 +39,11 @@ public final class RARFAVPlayerModel {
         let asset = AVAsset(url: videoUrl)
         let imgGenerator = AVAssetImageGenerator(asset: asset)
         imgGenerator.appliesPreferredTrackTransform = true
-        do{
+
+        do {
             let cgImage = try imgGenerator.copyCGImage(at: time, actualTime: nil)
             return UIImage(cgImage: cgImage)
-        } catch let error{ print(error,"error") }
+        } catch let error { print(error,"error") }
 
         return UIImage()
     }
