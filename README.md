@@ -23,6 +23,17 @@ it, simply add the following line to your Podfile:
 pod 'RARFSlider'
 ```
 
+## operation
+
+picButton opens a video album.
+
+Button saves the edited video.
+
+Merge combines the first and second edit videos.
+
+Reference video
+https://twitter.com/dbank0208/status/1116069455174307840?s=20
+
 ## Code
 
 ```ruby
