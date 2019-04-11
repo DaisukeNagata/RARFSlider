@@ -97,10 +97,10 @@ public final class RARFMaskVideoModel: NSObject {
             for image in images {
                 let imageViews = UIImageView()
                 imageViews.image = image
-                imageViews.image = image.ResizeUIImage(width: CGFloat(width), height: self.height ?? CGFloat())
+                imageViews.image = image.ResizeUIImage(width: width, height: self.height ?? CGFloat())
                 imageViews.clipsToBounds = true
                 imageViews.frame = CGRect(x: xPos,
-                                          y: self.height ?? CGFloat(),
+                                          y: 0,
                                           width: width,
                                           height: self.height ?? CGFloat())
                 sliderView.addSubview(imageViews)
