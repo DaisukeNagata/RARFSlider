@@ -12,7 +12,6 @@ import RARFSlider
 class ViewController: RARFPickerViewController {
 
     @IBOutlet private var sliderView: RARFSliderView!
-    var setVideoModel = RARFMaskVideoModel()
 
 
     override func viewDidLoad() {
@@ -35,6 +34,6 @@ class ViewController: RARFPickerViewController {
         sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8
         sliderView.url = url; sliderView.aVPlayerModel.video(url: url)
         sliderView.preView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
-        setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
+        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
     }
 }

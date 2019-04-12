@@ -34,7 +34,7 @@ final class RARFAlertObject: NSObject {
     }
 
     func alertSave(views: UIViewController) {
-        let alertController = UIAlertController(title: NSLocalizedString("Faled", comment: ""), message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Failed", comment: ""), message: "", preferredStyle: .alert)
         let stringAttributes: [NSAttributedString.Key : Any] = [
             .foregroundColor : UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0),
             .font : UIFont.systemFont(ofSize: 22.0)

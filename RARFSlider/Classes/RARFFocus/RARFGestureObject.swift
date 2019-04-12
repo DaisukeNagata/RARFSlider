@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TouchFlag { case touchSideLeft, touchSideRight }
+enum TouchFlag { case none, touchSideLeft, touchSideRight }
 
 final class RARFGestureObject: UIView {
 
@@ -22,17 +22,17 @@ final class RARFGestureObject: UIView {
         frame.insetBy(dx: -CGFloat(64), dy: -CGFloat(64))
         
         var leftRect = frame
-        leftRect.size.width = CGFloat(128)
+        leftRect.size.width = CGFloat(64)
         if leftRect.contains(point) {
             return TouchFlag.touchSideLeft
         }
 
         var rightRect = leftRect
-        rightRect.origin.x = frame.maxX - CGFloat(128)
+        rightRect.origin.x = frame.maxX - CGFloat(64)
         if rightRect.contains(point) {
             return TouchFlag.touchSideRight
         }
-        return TouchFlag.touchSideLeft
+        return TouchFlag.none
     }
     //タップされた領域からMaskするViewのサイズ、座標計算
     func updatePoint(point: CGPoint, views: UIView, touchFlag: TouchFlag)  {
@@ -46,6 +46,7 @@ final class RARFGestureObject: UIView {
             views.frame.origin.x =  point.x
             views.frame.size.width =  -point.x + endFrame.maxX
             break
+        case .none: break
         }
         let kTOCropViewMinimumBoxSize = 22
         // フォーカスの最小枠と最大枠

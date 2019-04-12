@@ -28,6 +28,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     public var borderWidth: CGFloat = 1.0
     public var topDownWhide: CGFloat = 1.0
     public var borderColor: UIColor = .white
+    public var setVideoModel = RARFMaskVideoModel()
 
     private var endValue: Float?
     private var startValue: Float?
@@ -117,6 +118,8 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
                 break
             case .touchSideLeft:
                 self.startValue = Float(value)
+                break
+            case .none:
                 break
             }
             break
