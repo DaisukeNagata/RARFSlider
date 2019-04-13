@@ -64,11 +64,9 @@ class ViewController: RARFPickerViewController {
         sliderView = RARFSliderView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
         sliderView.vc = self
-        sliderView.slider.isHidden = true
+        sliderView.slider.isHidden = false
         sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8
-        sliderView.url = url; sliderView.aVPlayerModel.video(url: url)
-        sliderView.preView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
-        setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
+        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
     }
 }
 ```
