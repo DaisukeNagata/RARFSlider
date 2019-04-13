@@ -8,6 +8,17 @@
 [![License](https://img.shields.io/cocoapods/l/RARFSlider.svg?style=flat)](https://cocoapods.org/pods/RARFSlider)
 [![Platform](https://img.shields.io/cocoapods/p/RARFSlider.svg?style=flat)](https://cocoapods.org/pods/RARFSlider)
 
+## operation
+It is a function to edit Video.
+
+- picButton opens a video album.
+
+- Button saves the edited video.
+
+- Merge combines the first and second edit videos.
+
+- Reference video
+https://twitter.com/dbank0208/status/1116069455174307840?s=20
 
 ## Example
 <img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680">
@@ -22,17 +33,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'RARFSlider'
 ```
-
-## operation
-
-picButton opens a video album.
-
-Button saves the edited video.
-
-Merge combines the first and second edit videos.
-
-Reference video
-https://twitter.com/dbank0208/status/1116069455174307840?s=20
 
 ## Code
 
