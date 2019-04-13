@@ -65,7 +65,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         lineDashView.isHidden = true
 
-        guard rARFDef.loadMethod(st: "pathFileNameSecound") == nil else {
+        guard rARFDef.loadMethod(st:"pathFileNameSecound") == nil else {
             rARFDef.removeMethod(st:"pathFileNameOne")
             rARFDef.removeMethod(st:"pathFileNameSecound")
             return
@@ -92,7 +92,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
-        let position: CGPoint = sender.location(in: self)
+        let position: CGPoint = sender.location(in: preView)
 
         if lineDashView.isHidden == true { self.addSubview(preView) }
         lineDashView.isHidden = false
@@ -120,6 +120,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
                 self.startValue = Float(value)
                 break
             case .none:
+                 self.endValue = Float(value)
                 break
             }
             break
