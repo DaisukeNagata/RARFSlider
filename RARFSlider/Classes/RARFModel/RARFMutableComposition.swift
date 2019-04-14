@@ -45,7 +45,8 @@ final class RARFMutableComposition: NSObject {
         aVAssetExportSet(title: title, mainComposition: mainCompositions)
     }
 
-    func aVAssetMerge(views: UIViewController, title: String, aVAsset: AVAsset, aVAssetSecound:AVAsset, startDuration: CMTime, endDuration: CMTime) {
+    func aVAssetMerge(vc: UIViewController, title: String, aVAsset: AVAsset, aVAssetSecound:AVAsset, startDuration: CMTime, endDuration: CMTime) {
+        self.vc = vc
         guard let firstTrack = mixComposition.addMutableTrack(withMediaType: .video,
                                                               preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
         do {
@@ -75,6 +76,52 @@ final class RARFMutableComposition: NSObject {
         firstInstruction.setOpacity(0.0, at: aVAsset.duration)
 
         let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAssetSecound)
+        mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
+
+        let mainComposition = AVMutableVideoComposition()
+        mainComposition.instructions = [mainInstruction]
+        mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+        mainComposition.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+
+        aVAssetExportSet(title: title, mainComposition: mainComposition)
+    }
+
+    func aVAssetInsideOut(vc: UIViewController, title: String, aVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime, totalDuration: CMTime) {
+        self.vc = vc
+        guard let firstTrack = mixComposition.addMutableTrack(withMediaType: .video,
+                                                              preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
+
+        do {
+            try firstTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: startDuration),
+                                           of: aVAsset.tracks(withMediaType: .video)[0],
+                                           at: CMTime.zero)
+        } catch let error {
+            print("Failed to load second track", error)
+            return
+        }
+
+        guard let secondTrack = mixComposition.addMutableTrack(withMediaType: .video,
+                                                               preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
+
+        let total = totalDuration - (endDuration - startDuration)
+        do {
+            try secondTrack.insertTimeRange(CMTimeRangeMake(start: endDuration, duration: total-startDuration),
+                                            of: aVAsset.tracks(withMediaType: .video)[0],
+                                            at: CMTime.zero)
+        } catch let error {
+            print("Failed to load second track", error)
+            return
+        }
+
+        let mainInstruction = AVMutableVideoCompositionInstruction()
+        mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: total)
+
+        let firstInstruction = videoCompositionInstruction(firstTrack, asset: aVAsset)
+        firstInstruction.setOpacity(0.0, at: startDuration)
+
+        let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAsset)
+        secondInstruction.setOpacity(Float(endDuration.value), at: total-startDuration)
+
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
 
         let mainComposition = AVMutableVideoComposition()

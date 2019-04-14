@@ -13,13 +13,14 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak public var picBt: UIButton!
-    @IBOutlet weak public var slider: UISlider!
-    @IBOutlet weak public var timeLabel: UILabel!
+    @IBOutlet weak var picBt: UIButton!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var trimButton: UIButton!
     @IBOutlet weak var mergeButton: UIButton!
-    @IBOutlet weak public var trimButton: UIButton!
-    @IBOutlet weak public var durationLabel: UILabel!
-    @IBOutlet weak public var thumnaiIImageView: UIImageView!
+    @IBOutlet weak var insideTrimButton: UIButton!
+    @IBOutlet weak var thumnaiIImageView: UIImageView!
 
     public var url: URL?
     public var preView = UIView()
@@ -54,6 +55,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         trimButton.addTarget(self, action: #selector(trimBt), for: .touchUpInside)
         mergeButton.addTarget(self, action: #selector(mergeBt), for: .touchUpInside)
+        insideTrimButton.addTarget(self, action: #selector(insideTrimBt), for: .touchUpInside)
 
         CommonStructure.swipePanGesture = UIPanGestureRecognizer(target: self, action:#selector(panTapped))
         CommonStructure.swipePanGesture.delegate = self
@@ -166,7 +168,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let startTime = CMTime(seconds: Float64(startValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let endTime = CMTime(seconds: Float64(timeSet), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
 
-        mutableComposition.aVAssetMerge(views: vc, title: "Merge", aVAsset: avAsset, aVAssetSecound: avAssetSecound, startDuration: startTime, endDuration: endTime)
+        mutableComposition.aVAssetMerge(vc: vc, title: "Merge", aVAsset: avAsset, aVAssetSecound: avAssetSecound, startDuration: startTime, endDuration: endTime)
     }
 
     @objc func trimBt() {
@@ -184,6 +186,24 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let endTime = CMTime(seconds: Float64(timeSet), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
 
         mutableComposition.aVAssetMerge(vc: vc, title: "Saved", startAVAsset: avAsset, startDuration: startTime, endDuration: endTime)
+    }
+    
+    @objc func insideTrimBt() {
+
+        if endValue == nil {
+            let currentTime = aVPlayerModel.videoDurationTime()
+            endValue = Float(currentTime)
+        }
+
+        guard let urs = url, let startValue = startValue, let endValue = endValue, let vc = vc else { return }
+
+        let avAsset = AVAsset(url: urs)
+        let currentTime = aVPlayerModel.videoDurationTime()
+        let startTime = CMTime(seconds: Float64(startValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let endDuration = CMTime(seconds: Float64(endValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let totalTime = CMTime(seconds: Float64(Float(currentTime)), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+
+        mutableComposition.aVAssetInsideOut(vc: vc, title: "Inside Out", aVAsset: avAsset, startDuration: startTime, endDuration: endDuration, totalDuration: totalTime)
     }
 
     private func ges(value: Float) {
