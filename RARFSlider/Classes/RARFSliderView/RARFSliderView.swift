@@ -65,6 +65,8 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         lineDashView.isHidden = true
 
+        startValue =  0
+
         guard rARFDef.loadMethod(st:"pathFileNameSecound") == nil else {
             rARFDef.removeMethod(st:"pathFileNameOne")
             rARFDef.removeMethod(st:"pathFileNameSecound")
@@ -168,6 +170,12 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc func trimBt() {
+
+        if endValue == nil {
+            let currentTime = aVPlayerModel.videoDurationTime()
+            endValue = Float(currentTime)
+        }
+
         guard let urs = url, let startValue = startValue, let endValue = endValue, let vc = vc else { return }
 
         let avAsset = AVAsset(url: urs)
