@@ -78,6 +78,11 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         loadNib()
     }
 
+    public func imagePick(vc: UIViewController) {
+        let imagePickerModel = RARFImagePickerModel()
+        imagePickerModel.mediaSegue(vc: vc, bool: true)
+    }
+
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let position: CGPoint = touch.location(in: self)
         gestureObject.framePoint = position

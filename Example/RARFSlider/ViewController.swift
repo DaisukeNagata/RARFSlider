@@ -17,20 +17,20 @@ class ViewController: RARFPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let imagePickerModel = RARFImagePickerModel()
-        imagePickerModel.mediaSegue(vc: self, bool: true)
+        sliderView.imagePick(vc: self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 
-        //DESIGNSET
         guard let url = url else  { return }
+
         sliderView.removeFromSuperview()
         sliderView = RARFSliderView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
+
         sliderView.vc = self
-        sliderView.slider.isHidden = false
+        //DESIGNSET
         sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8
         sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
     }
