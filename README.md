@@ -43,32 +43,32 @@ import RARFSlider
 // I have set the picker in the delegate.
 class ViewController: RARFPickerViewController {
 
-    var sliderView = RARFSliderView()
-    var setVideoModel = RARFMaskVideoModel()
+    @IBOutlet private var sliderView: RARFSliderView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // I have set the picker.
-        let imagePickerModel = RARFImagePickerModel()
-        imagePickerModel.mediaSegue(vc: self, bool: true)
+        sliderView.imagePick(vc: self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 
-        //DESIGNSET
         guard let url = url else  { return }
+
         sliderView.removeFromSuperview()
         sliderView = RARFSliderView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
+
+        sliderView.url = url
         sliderView.vc = self
-        sliderView.slider.isHidden = false
-        sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8
+        //DESIGNSET
+        sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7
         sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
     }
 }
+
 ```
 
 ## Author
