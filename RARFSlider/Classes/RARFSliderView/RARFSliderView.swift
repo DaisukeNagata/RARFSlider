@@ -187,7 +187,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         mutableComposition.aVAssetMerge(vc: vc, title: "Saved", startAVAsset: avAsset, startDuration: startTime, endDuration: endTime)
     }
-    
+
     @objc func insideTrimBt() {
 
         if endValue == nil {

@@ -13,7 +13,7 @@ final class RARFCALayerView: UIView {
     var path =  UIBezierPath()
     let maskLayer = CAShapeLayer()
     let hollowTargetLayer = CALayer()
-  
+
     private let girdRightOutView = UIView()
     private let girdRightInView = UIView()
     private let girdLeftOutView = UIView()
@@ -62,7 +62,7 @@ final class RARFCALayerView: UIView {
 
         maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
         hollowTargetLayer.mask = maskLayer
-    
+
         girdRightInView.backgroundColor = UIColor.red
         girdRightInView.frame = CGRect(x: views.frame.origin.x - sideWhide/2, y: views.frame.origin.y, width: sideWhide, height: views.frame.height)
 

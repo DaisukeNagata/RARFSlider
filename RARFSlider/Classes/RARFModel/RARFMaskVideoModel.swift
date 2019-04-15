@@ -22,7 +22,7 @@ public final class RARFMaskVideoModel: NSObject {
     public func setURL(url: URL,sliderView: RARFSliderView ,heightY: CGFloat ,height: CGFloat ) {
         self.slider = sliderView
         guard let sliderView = slider else { return }
-        
+
         sliderView.url = url
         sliderView.aVPlayerModel.video(url: url)
 
