@@ -35,7 +35,7 @@ final class RARFCALayerView: UIView {
         super.init(coder: aDecoder)
     }
 
-    func tori(views: UIView,sideWhide: CGFloat, topDownWhide: CGFloat,borderWidth: CGFloat,borderColor: UIColor ){
+    func tori(views: UIView,sideWhide: CGFloat, topDownWhide: CGFloat,borderWidth: CGFloat,borderColor: UIColor, opacity: Float ){
         views.layer.borderWidth = borderWidth
         views.layer.borderColor = borderColor.cgColor
         hollowTargetLayer.bounds = UIScreen.main.bounds
@@ -46,7 +46,7 @@ final class RARFCALayerView: UIView {
         )
 
         hollowTargetLayer.backgroundColor = UIColor.black.cgColor
-        hollowTargetLayer.opacity = 0.7
+        hollowTargetLayer.opacity = opacity
 
         maskLayer.bounds = hollowTargetLayer.bounds
 

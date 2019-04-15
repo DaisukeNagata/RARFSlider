@@ -25,6 +25,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     public var url: URL?
     public var preView = UIView()
     public var vc: UIViewController?
+    public var opacity: Float = 1.0
     public var sideWhide: CGFloat = 1.0
     public var borderWidth: CGFloat = 1.0
     public var topDownWhide: CGFloat = 1.0
@@ -115,7 +116,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: self.preView)
             self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
             // Layer
-            self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor)
+            self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor, opacity: self.opacity)
             self.slider.value = Float(value)
             self.ges(value: Float(value))
         }
