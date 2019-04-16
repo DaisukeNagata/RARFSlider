@@ -21,7 +21,9 @@ It is a function to edit Video.
 https://twitter.com/dbank0208/status/1116069455174307840?s=20
 
 ## Example
+<p align="center">
 <img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680">
+</p>
 
 ## Requirements
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -61,7 +63,6 @@ class ViewController: RARFPickerViewController {
         sliderView = RARFSliderView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
 
-        sliderView.url = url
         sliderView.vc = self
         //DESIGNSET
         sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7
