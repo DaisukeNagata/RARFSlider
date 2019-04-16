@@ -20,6 +20,8 @@ It is a function to edit Video.
 - Reference video
 https://twitter.com/dbank0208/status/1116069455174307840?s=20
 
+- Inside Trim is trims the selected inside.
+
 ## Example
 <p align="center">
 <img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680">
