@@ -16,6 +16,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet weak var picBt: UIButton!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var preView: RARFPreView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var trimButton: UIButton!
     @IBOutlet weak var mergeButton: UIButton!
@@ -23,7 +24,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet weak var thumnaiIImageView: UIImageView!
 
     public var url: URL?
-    public var preView = UIView()
     public var vc: UIViewController?
     public var opacity: Float = 1.0
     public var sideWhide: CGFloat = 1.0
@@ -62,6 +62,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         CommonStructure.swipePanGesture.delegate = self
         self.addGestureRecognizer(CommonStructure.swipePanGesture)
 
+        preView.backgroundColor = UIColor.clear
         preView.layer.addSublayer(cALayerView.hollowTargetLayer)
         preView.addSubview(cALayerView)
         preView.addSubview(lineDashView)

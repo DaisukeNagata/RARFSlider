@@ -14,6 +14,7 @@
                 <outlet property="insideTrimButton" destination="h4z-Dl-2VV" id="V5i-1B-Ba8"/>
                 <outlet property="mergeButton" destination="EcJ-fz-td0" id="v4u-bb-dNW"/>
                 <outlet property="picBt" destination="Sso-NX-aj3" id="F0a-Gg-ygj"/>
+                <outlet property="preView" destination="cbu-O8-KGn" id="Imb-Oi-FOk"/>
                 <outlet property="slider" destination="eLB-hK-AUd" id="oPr-HI-Uqq"/>
                 <outlet property="thumnaiIImageView" destination="cJ2-8q-jhB" id="ybe-SQ-Tac"/>
                 <outlet property="timeLabel" destination="DqO-xM-0tb" id="A7L-jQ-Dqr"/>
@@ -37,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqO-xM-0tb">
-                    <rect key="frame" x="134" y="113" width="118" height="68"/>
+                    <rect key="frame" x="134" y="130" width="118" height="68"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68" id="1ws-5j-SFn"/>
                         <constraint firstAttribute="width" secondItem="DqO-xM-0tb" secondAttribute="height" multiplier="59:34" id="AMh-lb-t4v"/>
@@ -47,7 +48,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiJ-0E-e7U">
-                    <rect key="frame" x="134" y="182" width="118" height="68"/>
+                    <rect key="frame" x="134" y="200" width="118" height="68"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="qiJ-0E-e7U" secondAttribute="height" multiplier="59:34" id="82K-nT-kon"/>
                     </constraints>
@@ -80,13 +81,18 @@
                     </constraints>
                     <state key="normal" title="Merge"/>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-O8-KGn" customClass="RARFPreView" customModule="RARFSlider" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="cyl-ej-IZV" firstAttribute="top" secondItem="Sso-NX-aj3" secondAttribute="bottom" constant="28" id="4YW-1U-PQd"/>
                 <constraint firstItem="EcJ-fz-td0" firstAttribute="leading" secondItem="cyl-ej-IZV" secondAttribute="leading" id="6Fi-Gz-ZSx"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="centerX" secondItem="Sso-NX-aj3" secondAttribute="centerX" id="DC5-2F-iDE"/>
                 <constraint firstItem="Sso-NX-aj3" firstAttribute="top" secondItem="eLB-hK-AUd" secondAttribute="bottom" constant="23" id="GkB-xf-GHE"/>
-                <constraint firstItem="qiJ-0E-e7U" firstAttribute="top" secondItem="DqO-xM-0tb" secondAttribute="bottom" constant="1" id="KQR-Ay-DYW"/>
+                <constraint firstItem="qiJ-0E-e7U" firstAttribute="top" secondItem="DqO-xM-0tb" secondAttribute="bottom" constant="2" id="KQR-Ay-DYW"/>
                 <constraint firstItem="h4z-Dl-2VV" firstAttribute="top" secondItem="EcJ-fz-td0" secondAttribute="bottom" constant="27" id="Kyq-yC-LYh"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="top" secondItem="cJ2-8q-jhB" secondAttribute="bottom" constant="47" id="Ojq-rZ-lWp"/>
                 <constraint firstItem="qiJ-0E-e7U" firstAttribute="width" secondItem="DqO-xM-0tb" secondAttribute="width" id="P7G-Gu-cST"/>
@@ -95,7 +101,7 @@
                 <constraint firstItem="cJ2-8q-jhB" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="250" id="dON-f0-PWV"/>
                 <constraint firstItem="h4z-Dl-2VV" firstAttribute="leading" secondItem="EcJ-fz-td0" secondAttribute="leading" constant="-30" id="gDh-Jo-CMS"/>
                 <constraint firstAttribute="trailing" secondItem="cJ2-8q-jhB" secondAttribute="trailing" constant="295" id="j3D-Fk-bd6"/>
-                <constraint firstItem="DqO-xM-0tb" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="113" id="kNU-Yd-0sv"/>
+                <constraint firstItem="DqO-xM-0tb" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="130" id="kNU-Yd-0sv"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="centerX" secondItem="cyl-ej-IZV" secondAttribute="centerX" id="nLL-9b-YFL"/>
                 <constraint firstItem="DqO-xM-0tb" firstAttribute="leading" secondItem="qiJ-0E-e7U" secondAttribute="leading" id="rqy-1h-18r"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="leading" secondItem="cJ2-8q-jhB" secondAttribute="leading" id="rri-Xm-Gyh"/>

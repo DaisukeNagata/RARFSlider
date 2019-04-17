@@ -23,6 +23,7 @@ final class RARFCALayerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
+
         self.addSubview(girdRightOutView)
         self.addSubview(girdRightInView)
         self.addSubview(girdLeftOutView)

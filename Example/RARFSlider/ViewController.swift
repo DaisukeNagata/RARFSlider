@@ -32,6 +32,6 @@ class ViewController: RARFPickerViewController {
         sliderView.vc = self
         //DESIGNSET
         sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7
-        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
+        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, height: 100)
     }
 }
