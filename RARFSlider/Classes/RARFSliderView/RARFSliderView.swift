@@ -108,19 +108,20 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         if lineDashView.isHidden == true { self.addSubview(preView) }
         lineDashView.isHidden = false
 
-        // Slider
         let value = Float64(position.x) * (self.aVPlayerModel.videoDurationTime() / Float64(self.frame.width))
+
+        self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor, opacity: self.opacity)
+
         DispatchQueue.main.async {
             //Gesture
             self.gestureObject.endPoint = self.lineDashView.frame.origin
             self.gestureObject.endFrame = self.lineDashView.frame
             self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: self.preView)
             self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
-            // Layer
-            self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor, opacity: self.opacity)
             self.slider.value = Float(value)
             self.ges(value: Float(value))
         }
+
         switch sender.state {
         case .ended:
             switch self.touchFlag {
