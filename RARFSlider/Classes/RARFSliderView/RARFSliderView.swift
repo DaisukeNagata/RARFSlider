@@ -51,6 +51,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         super.init(frame: frame)
 
         loadNib()
+
         slider.addTarget(self, action: #selector(onChange(change:)), for: .valueChanged)
         picBt.addTarget(self, action: #selector(pickBt), for: .touchUpInside)
 
@@ -67,8 +68,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         preView.addSubview(cALayerView)
         preView.addSubview(lineDashView)
 
-        lineDashView.isHidden = true
-
         startValue =  0
 
         guard rARFDef.loadMethod(st:"pathFileNameSecound") == nil else {
@@ -76,6 +75,13 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             rARFDef.removeMethod(st:"pathFileNameSecound")
             return
         }
+
+        self.cALayerView.tori(views: self.lineDashView,
+                              sideWhide: self.sideWhide,
+                              topDownWhide: self.topDownWhide,
+                              borderWidth: self.borderWidth,
+                              borderColor: self.borderColor,
+                              opacity: self.opacity)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -103,11 +109,8 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
+
         let position: CGPoint = sender.location(in: preView)
-
-        if lineDashView.isHidden == true { self.addSubview(preView) }
-        lineDashView.isHidden = false
-
         let value = Float64(position.x) * (self.aVPlayerModel.videoDurationTime() / Float64(self.frame.width))
 
         self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor, opacity: self.opacity)

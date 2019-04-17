@@ -107,7 +107,7 @@ public final class RARFMaskVideoModel: NSObject {
                                           y: 0,
                                           width: width,
                                           height: self.height ?? CGFloat())
-                sliderView.addSubview(imageViews)
+                sliderView.addSubview(imageViews); sliderView.sendSubviewToBack(imageViews)
                 xPos += CGFloat(width)
             }
         }
