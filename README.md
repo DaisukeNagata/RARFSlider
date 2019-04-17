@@ -24,7 +24,7 @@ https://twitter.com/dbank0208/status/1116069455174307840?s=20
 
 ## Example
 <p align="center">
-<img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680">
+<img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="290" height="680"><img src="https://user-images.githubusercontent.com/16457165/56300661-54001100-6171-11e9-9fff-63cb1b683447.gif" width="290" height="680">
 </p>
 
 ## Requirements
