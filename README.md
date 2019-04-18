@@ -17,9 +17,6 @@ It is a function to edit Video.
 
 - Merge combines the first and second edit videos.
 
-- Reference video
-https://twitter.com/dbank0208/status/1116069455174307840?s=20
-
 - Inside Trim is trims the selected inside.
 
 ## Example
