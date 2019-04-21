@@ -22,6 +22,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet weak var mergeButton: UIButton!
     @IBOutlet weak var insideTrimButton: UIButton!
     @IBOutlet weak var thumnaiIImageView: UIImageView!
+    @IBOutlet weak var largePreView: UIImageView!
 
     public var url: URL?
     public var vc: UIViewController?
@@ -67,6 +68,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         preView.layer.addSublayer(cALayerView.hollowTargetLayer)
         preView.addSubview(cALayerView)
         preView.addSubview(lineDashView)
+        self.sendSubviewToBack(largePreView)
 
         startValue =  0
 
@@ -110,7 +112,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
 
-        let position: CGPoint = sender.location(in: preView)
+        let position: CGPoint = sender.location(in: self)
         let value = Float64(position.x) * (self.aVPlayerModel.videoDurationTime() / Float64(self.frame.width))
 
         self.cALayerView.tori(views: self.lineDashView, sideWhide: self.sideWhide, topDownWhide: self.topDownWhide, borderWidth: self.borderWidth, borderColor: self.borderColor, opacity: self.opacity)
@@ -229,5 +231,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         thumnaiIImageView.frame.origin.x = CGFloat(changeOrigin)
         thumnaiIImageView.image = aVPlayerModel.videoImageViews(nowTime: nowTime)
+        largePreView.image = aVPlayerModel.videoImageViews(nowTime: nowTime)
     }
 }
