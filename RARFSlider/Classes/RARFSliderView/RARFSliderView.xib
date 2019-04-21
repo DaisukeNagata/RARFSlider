@@ -23,16 +23,16 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="cdk-ZE-bND">
+        <view contentMode="scaleAspectFill" id="cdk-ZE-bND">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KbT-qZ-jmr">
-                    <rect key="frame" x="16" y="130" width="343" height="463"/>
+                    <rect key="frame" x="16" y="130" width="343" height="501"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="KbT-qZ-jmr" secondAttribute="height" multiplier="343:463" id="0i5-xT-nQ5"/>
+                        <constraint firstAttribute="width" secondItem="KbT-qZ-jmr" secondAttribute="height" multiplier="343:463" constant="-28.151187904967628" id="0i5-xT-nQ5"/>
                         <constraint firstAttribute="width" constant="343" id="PKy-5U-QaE"/>
-                        <constraint firstAttribute="height" constant="463" id="qJU-Pw-RfN"/>
+                        <constraint firstAttribute="height" constant="501" id="qJU-Pw-RfN"/>
                     </constraints>
                 </imageView>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="eLB-hK-AUd">
@@ -110,7 +110,7 @@
                 <constraint firstItem="KbT-qZ-jmr" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="130" id="XHL-sF-7qE"/>
                 <constraint firstItem="cbu-O8-KGn" firstAttribute="trailing" secondItem="eLB-hK-AUd" secondAttribute="trailing" id="b6x-Ol-Zvj"/>
                 <constraint firstItem="cJ2-8q-jhB" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="250" id="dON-f0-PWV"/>
-                <constraint firstItem="h4z-Dl-2VV" firstAttribute="top" secondItem="KbT-qZ-jmr" secondAttribute="bottom" constant="8" id="emJ-5Q-TLf"/>
+                <constraint firstItem="h4z-Dl-2VV" firstAttribute="top" secondItem="KbT-qZ-jmr" secondAttribute="bottom" constant="-30" id="emJ-5Q-TLf"/>
                 <constraint firstItem="h4z-Dl-2VV" firstAttribute="leading" secondItem="EcJ-fz-td0" secondAttribute="leading" constant="-30" id="gDh-Jo-CMS"/>
                 <constraint firstAttribute="trailing" secondItem="cJ2-8q-jhB" secondAttribute="trailing" constant="295" id="j3D-Fk-bd6"/>
                 <constraint firstAttribute="bottom" secondItem="cbu-O8-KGn" secondAttribute="bottom" constant="567" id="k0f-Ou-0F4"/>
