@@ -12,13 +12,14 @@ import AVFoundation
 public final class RARFMaskVideoModel: NSObject {
 
     private var height: CGFloat?
+    private var heightY: CGFloat?
     private var numberOfFrames = 1.0
     private var duration: Float64 = 0.0
     private var thumbnailViews = [UIImageView]()
     private var videoURL  = URL(fileURLWithPath: "")
     private var slider: RARFSliderView?
 
-    public func setURL(url: URL,sliderView: RARFSliderView, height: CGFloat ) {
+    public func setURL(url: URL,sliderView: RARFSliderView, height: CGFloat, heightY: CGFloat) {
         self.slider = sliderView
         guard let sliderView = slider else { return }
 
@@ -26,6 +27,7 @@ public final class RARFMaskVideoModel: NSObject {
         sliderView.aVPlayerModel.video(url: url)
 
         self.videoURL = url
+        self.heightY = heightY
         self.height = height
         self.duration = videoDuration(videoURL: url)
         self.updateThumbnails(sliderView: sliderView)
@@ -107,7 +109,8 @@ public final class RARFMaskVideoModel: NSObject {
                                           y: 0,
                                           width: width,
                                           height: self.height ?? CGFloat())
-                sliderView.addSubview(imageViews); sliderView.sendSubviewToBack(imageViews)
+                sliderView.preView.frame.origin.y = self.heightY ?? CGFloat()
+                sliderView.preView.addSubview(imageViews); sliderView.preView.sendSubviewToBack(imageViews)
                 xPos += CGFloat(width)
             }
         }
