@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RARFPreView: UIView {
+final public class RARFPreView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

@@ -13,16 +13,16 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak var picBt: UIButton!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var preView: RARFPreView!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var trimButton: UIButton!
-    @IBOutlet weak var mergeButton: UIButton!
-    @IBOutlet weak var insideTrimButton: UIButton!
-    @IBOutlet weak var thumnaiIImageView: UIImageView!
-    @IBOutlet weak var largePreView: UIImageView!
+    @IBOutlet public var picBt: UIButton!
+    @IBOutlet public var slider: UISlider!
+    @IBOutlet public var timeLabel: UILabel!
+    @IBOutlet public var preView: RARFPreView!
+    @IBOutlet public var durationLabel: UILabel!
+    @IBOutlet public var trimButton: UIButton!
+    @IBOutlet public var mergeButton: UIButton!
+    @IBOutlet public var insideTrimButton: UIButton!
+    @IBOutlet public var thumnaiIImageView: UIImageView!
+    @IBOutlet public var largePreView: UIImageView!
 
     public var url: URL?
     public var vc: UIViewController?
