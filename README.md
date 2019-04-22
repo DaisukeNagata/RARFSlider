@@ -19,8 +19,25 @@ It is a function to edit Video.
 
 - Inside Trim is trims the selected inside.
 
-### version 0.3.1
-- You can preview the image in largePreView.
+### version 0.3.8
+```ruby
+You can set it to your favorite design.
+
+    @IBOutlet public var picBt: UIButton!
+
+    @IBOutlet public var slider: UISlider!
+
+    @IBOutlet public var timeLabel: UILabel!
+    @IBOutlet public var durationLabel: UILabel!
+
+    @IBOutlet public var trimButton: UIButton!
+    @IBOutlet public var mergeButton: UIButton!
+    @IBOutlet public var insideTrimButton: UIButton!
+
+    @IBOutlet public var preView: RARFPreView!
+    @IBOutlet public var largePreView: UIImageView!
+    @IBOutlet public var thumnaiIImageView: UIImageView!
+```
 
 ## Example
 <p align="center">
@@ -62,13 +79,13 @@ class ViewController: RARFPickerViewController {
         guard let url = url else  { return }
 
         sliderView.removeFromSuperview()
-        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height))
+        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
 
         sliderView.vc = self
         //DESIGNSET
-        sliderView.borderWidth = 1; sliderView.borderColor = .red; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7
-        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, heightY: 0, height: 100)
+        sliderView.borderWidth = 1; sliderView.borderColor = .white; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7;
+        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
     }
 }
 
