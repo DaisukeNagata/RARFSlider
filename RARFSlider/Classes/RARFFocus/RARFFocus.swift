@@ -64,22 +64,22 @@ final class RARFCALayerView: UIView {
         maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
         hollowTargetLayer.mask = maskLayer
 
-        girdRightInView.backgroundColor = UIColor.red
+        girdRightInView.backgroundColor = borderColor
         girdRightInView.frame = CGRect(x: views.frame.origin.x - sideWhide/2, y: views.frame.origin.y, width: sideWhide, height: views.frame.height)
 
-        girdRightOutView.backgroundColor = UIColor.red
+        girdRightOutView.backgroundColor = borderColor
         girdRightOutView.frame = CGRect(x: views.frame.origin.x + sideWhide/2, y: views.frame.origin.y, width: sideWhide, height: views.frame.height)
 
-        girdLeftInView.backgroundColor = UIColor.red
+        girdLeftInView.backgroundColor = borderColor
         girdLeftInView.frame = CGRect(x: views.frame.width + views.frame.origin.x - sideWhide/2, y: views.frame.origin.y, width: sideWhide, height: views.frame.height)
 
-        girdLeftOutView.backgroundColor = UIColor.red
+        girdLeftOutView.backgroundColor = borderColor
         girdLeftOutView.frame = CGRect(x: views.frame.width + views.frame.origin.x + sideWhide/2, y: views.frame.origin.y, width: sideWhide, height: views.frame.height)
 
-        girdTopOutView.backgroundColor = UIColor.red
+        girdTopOutView.backgroundColor = borderColor
         girdTopOutView.frame = CGRect(x: views.frame.origin.x - sideWhide/2, y: views.frame.origin.y - topDownWhide/2, width: views.frame.width + sideWhide*2, height: topDownWhide)
 
-        girdBottomOutView.backgroundColor = UIColor.red
+        girdBottomOutView.backgroundColor = borderColor
         girdBottomOutView.frame = CGRect(x: views.frame.origin.x - sideWhide/2, y: views.frame.height, width: views.frame.width + sideWhide*2, height: topDownWhide)
     }
 }

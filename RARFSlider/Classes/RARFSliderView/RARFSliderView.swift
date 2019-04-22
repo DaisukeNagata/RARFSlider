@@ -71,6 +71,9 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         preView.layer.addSublayer(cALayerView.hollowTargetLayer)
         preView.addSubview(cALayerView)
         preView.addSubview(lineDashView)
+        
+        largePreView.layer.borderWidth = 1
+        largePreView.layer.borderColor = UIColor.white.cgColor
         self.sendSubviewToBack(largePreView)
 
         startValue =  0
