@@ -14,15 +14,19 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     @IBOutlet public var picBt: UIButton!
+
     @IBOutlet public var slider: UISlider!
+
     @IBOutlet public var timeLabel: UILabel!
-    @IBOutlet public var preView: RARFPreView!
     @IBOutlet public var durationLabel: UILabel!
+
     @IBOutlet public var trimButton: UIButton!
     @IBOutlet public var mergeButton: UIButton!
     @IBOutlet public var insideTrimButton: UIButton!
-    @IBOutlet public var thumnaiIImageView: UIImageView!
+
+    @IBOutlet public var preView: RARFPreView!
     @IBOutlet public var largePreView: UIImageView!
+    @IBOutlet public var thumnaiIImageView: UIImageView!
 
     public var url: URL?
     public var vc: UIViewController?
@@ -31,6 +35,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     public var borderWidth: CGFloat = 1.0
     public var topDownWhide: CGFloat = 1.0
     public var borderColor: UIColor = .white
+    public var aVPlayerModel = RARFAVPlayerModel()
     public var setVideoModel = RARFMaskVideoModel()
 
     private var endValue: Float?
@@ -39,13 +44,11 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     private var currentValue = Float()
     private var alert = RARFAlertObject()
     private var rARFDef = RARFUserDefaults()
-    public var aVPlayerModel = RARFAVPlayerModel()
-    private var mutableComposition = RARFMutableComposition()
-
     private var cALayerView = RARFCALayerView()
     private var lineDashView = RARFLineDashView()
     private var gestureObject = RARFGestureObject()
     private var touchFlag = TouchFlag.touchSideLeft
+    private var mutableComposition = RARFMutableComposition()
 
 
     public override init(frame: CGRect) {
