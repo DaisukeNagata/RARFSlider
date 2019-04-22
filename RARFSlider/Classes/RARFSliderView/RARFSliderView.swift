@@ -64,8 +64,8 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         CommonStructure.swipePanGesture.delegate = self
         self.addGestureRecognizer(CommonStructure.swipePanGesture)
 
-        let longPress = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        self.addGestureRecognizer(longPress)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.addGestureRecognizer(tap)
 
         preView.backgroundColor = UIColor.clear
         preView.layer.addSublayer(cALayerView.hollowTargetLayer)
