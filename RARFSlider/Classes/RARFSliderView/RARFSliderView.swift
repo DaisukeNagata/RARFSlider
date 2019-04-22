@@ -64,6 +64,9 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         CommonStructure.swipePanGesture.delegate = self
         self.addGestureRecognizer(CommonStructure.swipePanGesture)
 
+        let longPress = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.addGestureRecognizer(longPress)
+
         preView.backgroundColor = UIColor.clear
         preView.layer.addSublayer(cALayerView.hollowTargetLayer)
         preView.addSubview(cALayerView)
@@ -108,6 +111,32 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let view = bundle.loadNibNamed("RARFSliderView", owner: self, options: nil)?.first as! UIView
         view.frame = UIScreen.main.bounds
         self.addSubview(view)
+    }
+
+    @objc func tapped(sender: UITapGestureRecognizer) {
+        if self.durationLabel.alpha == 0 {
+            UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
+                self.picBt.alpha = 1
+                self.slider.alpha = 1
+                self.timeLabel.alpha = 1
+                self.trimButton.alpha = 1
+                self.mergeButton.alpha = 1
+                self.durationLabel.alpha = 1
+                self.insideTrimButton.alpha = 1
+                self.thumnaiIImageView.alpha = 1
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
+                self.picBt.alpha = 0
+                self.slider.alpha = 0
+                self.timeLabel.alpha = 0
+                self.trimButton.alpha = 0
+                self.mergeButton.alpha = 0
+                self.durationLabel.alpha = 0
+                self.insideTrimButton.alpha = 0
+                self.thumnaiIImageView.alpha = 0
+            }, completion: nil)
+        }
     }
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
