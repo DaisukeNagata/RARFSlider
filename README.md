@@ -19,24 +19,23 @@ It is a function to edit Video.
 
 - Inside Trim is trims the selected inside.
 
-### version 0.3.8
+### version 0.4.3
 ```ruby
 You can set it to your favorite design.
 
-    @IBOutlet public var picBt: UIButton!
+    @IBOutlet public var rARFSlider: UISlider!
 
-    @IBOutlet public var slider: UISlider!
+    @IBOutlet public var rARFTimeLabel: UILabel!
+    @IBOutlet public var rARFDurationLabel: UILabel!
 
-    @IBOutlet public var timeLabel: UILabel!
-    @IBOutlet public var durationLabel: UILabel!
+    @IBOutlet public var rARFPicBt: UIButton!
+    @IBOutlet public var rARFTrimButton: UIButton!
+    @IBOutlet public var rARFMergeButton: UIButton!
+    @IBOutlet public var rARFInsideTrimButton: UIButton!
 
-    @IBOutlet public var trimButton: UIButton!
-    @IBOutlet public var mergeButton: UIButton!
-    @IBOutlet public var insideTrimButton: UIButton!
-
-    @IBOutlet public var preView: RARFPreView!
-    @IBOutlet public var largePreView: UIImageView!
-    @IBOutlet public var thumnaiIImageView: UIImageView!
+    @IBOutlet public var rARFPreView: RARFPreView!
+    @IBOutlet public var rARFLargePreView: UIImageView!
+    @IBOutlet public var rARFThumnaiIImageView: UIImageView!
 ```
 
 ## Example
@@ -61,7 +60,6 @@ pod 'RARFSlider'
 import UIKit
 import RARFSlider
 
-// I have set the picker in the delegate.
 class ViewController: RARFPickerViewController {
 
     @IBOutlet private var sliderView: RARFSliderView!
@@ -82,13 +80,12 @@ class ViewController: RARFPickerViewController {
         sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         view.addSubview(sliderView)
 
-        sliderView.vc = self
+        sliderView.rARFVc = self
         //DESIGNSET
-        sliderView.borderWidth = 1; sliderView.borderColor = .white; sliderView.topDownWhide = 4; sliderView.sideWhide = 8; sliderView.opacity = 0.7;
-        sliderView.setVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
+        sliderView.rARFBorderWidth = 1; sliderView.rARFBorderColor = .white; sliderView.rARFTopDownWhide = 4; sliderView.rARFSideWhide = 8; sliderView.rARFOpacity = 0.7;
+        sliderView.rARFSetVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
     }
 }
-
 ```
 
 ## Author
