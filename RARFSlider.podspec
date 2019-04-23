@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RARFSlider'
-  s.version          = '0.3.8'
+  s.version          = '0.4.0'
   s.summary          = 'RARFSlider is a video editing function.'
   s.homepage         = 'https://github.com/daisukenagata/RARFSlider'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
