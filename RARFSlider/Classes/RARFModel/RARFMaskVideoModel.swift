@@ -24,8 +24,8 @@ public final class RARFMaskVideoModel: NSObject {
         self.slider = sliderView
         guard let sliderView = slider else { return }
 
-        sliderView.url = url
-        sliderView.aVPlayerModel.video(url: url)
+        sliderView.rARFUrl = url
+        sliderView.rARFAVPlayerModel.video(url: url)
 
         self.videoURL = url
         self.heightY = heightY
@@ -110,8 +110,8 @@ public final class RARFMaskVideoModel: NSObject {
                                           y: 0,
                                           width: width,
                                           height: self.height ?? CGFloat())
-                sliderView.preView.frame.origin.y = self.heightY ?? CGFloat()
-                sliderView.preView.addSubview(imageViews); sliderView.preView.sendSubviewToBack(imageViews)
+                sliderView.rARFPreView.frame.origin.y = self.heightY ?? CGFloat()
+                sliderView.rARFPreView.addSubview(imageViews); sliderView.rARFPreView.sendSubviewToBack(imageViews)
                 xPos += CGFloat(width)
             }
         }

@@ -10,16 +10,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RARFSliderView" customModule="RARFSlider" customModuleProvider="target">
             <connections>
-                <outlet property="durationLabel" destination="qiJ-0E-e7U" id="f2B-nR-Ua6"/>
-                <outlet property="insideTrimButton" destination="h4z-Dl-2VV" id="V5i-1B-Ba8"/>
-                <outlet property="largePreView" destination="KbT-qZ-jmr" id="e0P-J8-VIr"/>
-                <outlet property="mergeButton" destination="EcJ-fz-td0" id="v4u-bb-dNW"/>
-                <outlet property="picBt" destination="Sso-NX-aj3" id="F0a-Gg-ygj"/>
-                <outlet property="preView" destination="cbu-O8-KGn" id="Imb-Oi-FOk"/>
-                <outlet property="slider" destination="eLB-hK-AUd" id="oPr-HI-Uqq"/>
-                <outlet property="thumnaiIImageView" destination="cJ2-8q-jhB" id="ybe-SQ-Tac"/>
-                <outlet property="timeLabel" destination="DqO-xM-0tb" id="A7L-jQ-Dqr"/>
-                <outlet property="trimButton" destination="cyl-ej-IZV" id="LtM-ce-p0v"/>
+                <outlet property="rARFDurationLabel" destination="qiJ-0E-e7U" id="De5-w8-08t"/>
+                <outlet property="rARFInsideTrimButton" destination="h4z-Dl-2VV" id="cE3-gw-kMi"/>
+                <outlet property="rARFLargePreView" destination="KbT-qZ-jmr" id="50t-xh-3xo"/>
+                <outlet property="rARFMergeButton" destination="EcJ-fz-td0" id="f7b-lS-nCD"/>
+                <outlet property="rARFPicBt" destination="Sso-NX-aj3" id="Kvp-jU-p0m"/>
+                <outlet property="rARFPreView" destination="cbu-O8-KGn" id="fj6-Of-jH8"/>
+                <outlet property="rARFSlider" destination="eLB-hK-AUd" id="l49-1O-TFR"/>
+                <outlet property="rARFThumnaiIImageView" destination="cJ2-8q-jhB" id="ZxM-UT-Jp3"/>
+                <outlet property="rARFTimeLabel" destination="DqO-xM-0tb" id="ind-78-6D7"/>
+                <outlet property="rARFTrimButton" destination="cyl-ej-IZV" id="W70-me-S5o"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
