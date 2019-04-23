@@ -15,6 +15,7 @@ public final class RARFAVPlayerModel {
     var videoPlayer: AVPlayer!
     var playerItem: AVPlayerItem?
 
+
     public func video(url: URL) {
         self.url = url
         let avAsset = AVURLAsset(url: url, options: nil)

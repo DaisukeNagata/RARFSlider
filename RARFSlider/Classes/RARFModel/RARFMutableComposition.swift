@@ -17,6 +17,7 @@ final class RARFMutableComposition: NSObject {
     private var alert = RARFAlertObject()
     private let mixComposition = AVMutableComposition()
 
+
     func aVAssetMerge(vc: UIViewController, title: String,  startAVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime) {
         self.vc = vc
         guard let firstTrack = mixComposition.addMutableTrack(withMediaType: .video,

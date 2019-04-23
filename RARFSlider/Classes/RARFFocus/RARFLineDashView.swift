@@ -13,6 +13,7 @@ final class RARFLineDashView: UIView {
     var yHeight: CGFloat = 100
     var screenWidth = UIScreen.main.bounds.width
 
+
     override init(frame: CGRect) {
         super.init(frame: .zero)
 

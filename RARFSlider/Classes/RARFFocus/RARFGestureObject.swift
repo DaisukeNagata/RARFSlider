@@ -16,6 +16,7 @@ final class RARFGestureObject: UIView {
     var endFrame = CGRect()
     var framePoint = CGPoint()
 
+
     func cropEdgeForPoint(point: CGPoint, views: UIView) -> TouchFlag {
         //タップした領域を取得
         let frame = views.frame
