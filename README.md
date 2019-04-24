@@ -19,6 +19,8 @@ It is a function to edit Video.
 
 - Inside Trim is trims the selected inside.
 
+- Show or hide the UI by tapping the preview screen
+
 ### version 0.4.3
 ```ruby
 You can set it to your favorite design.
