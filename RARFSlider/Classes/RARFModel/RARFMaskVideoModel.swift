@@ -110,8 +110,8 @@ public final class RARFMaskVideoModel: NSObject {
                                           y: 0,
                                           width: width,
                                           height: self.height ?? CGFloat())
-                sliderView.rARFPreView.frame.origin.y = self.heightY ?? CGFloat()
-                sliderView.rARFPreView.addSubview(imageViews); sliderView.rARFPreView.sendSubviewToBack(imageViews)
+                sliderView.rARFPreView?.frame.origin.y = self.heightY ?? CGFloat()
+                sliderView.rARFPreView?.addSubview(imageViews); sliderView.rARFPreView?.sendSubviewToBack(imageViews)
                 xPos += CGFloat(width)
             }
         }

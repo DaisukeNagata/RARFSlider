@@ -13,19 +13,19 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
-    @IBOutlet public weak var rARFSlider: UISlider!
+    @IBOutlet public weak var rARFSlider: UISlider?
 
-    @IBOutlet public weak var rARFTimeLabel: UILabel!
-    @IBOutlet public weak var rARFDurationLabel: UILabel!
+    @IBOutlet public weak var rARFTimeLabel: UILabel?
+    @IBOutlet public weak var rARFDurationLabel: UILabel?
 
-    @IBOutlet public weak var rARFPicBt: UIButton!
-    @IBOutlet public weak var rARFTrimButton: UIButton!
-    @IBOutlet public weak var rARFMergeButton: UIButton!
-    @IBOutlet public weak var rARFInsideTrimButton: UIButton!
+    @IBOutlet public weak var rARFPicBt: UIButton?
+    @IBOutlet public weak var rARFTrimButton: UIButton?
+    @IBOutlet public weak var rARFMergeButton: UIButton?
+    @IBOutlet public weak var rARFInsideTrimButton: UIButton?
 
-    @IBOutlet public weak var rARFPreView: RARFPreView!
-    @IBOutlet public weak var rARFLargePreView: UIImageView!
-    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView!
+    @IBOutlet public weak var rARFPreView: RARFPreView?
+    @IBOutlet public weak var rARFLargePreView: UIImageView?
+    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView?
 
     public var rARFUrl: URL?
     public var rARFVc: UIViewController?
@@ -55,6 +55,17 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
         loadNib()
 
+        guard
+            let rARFSlider = rARFSlider,
+            let rARFPicBt = rARFPicBt,
+            let rARFTrimButton = rARFTrimButton,
+            let rARFMergeButton = rARFMergeButton,
+            let rARFInsideTrimButton = rARFInsideTrimButton,
+            let rARFPreView = rARFPreView,
+            let rARFLargePreView = rARFLargePreView  else {
+            return
+        }
+        
         rARFPicBt.addTarget(self, action: #selector(pickBt), for: .touchUpInside)
         rARFTrimButton.addTarget(self, action: #selector(trimBt), for: .touchUpInside)
         rARFMergeButton.addTarget(self, action: #selector(mergeBt), for: .touchUpInside)
@@ -116,32 +127,49 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     }
 
     @objc func tapped(sender: UITapGestureRecognizer) {
-        if self.rARFDurationLabel.alpha == 0 {
+        guard
+            let rARFSlider = rARFSlider,
+            let rARFPicBt = rARFPicBt,
+            let rARFTrimButton = rARFTrimButton,
+            let rARFMergeButton = rARFMergeButton,
+            let rARFInsideTrimButton = rARFInsideTrimButton,
+            let rARFThumnaiIImageView = rARFThumnaiIImageView,
+            let rARFTimeLabel = rARFTimeLabel,
+            let rARFDurationLabel = rARFDurationLabel else {
+                return
+        }
+        if rARFDurationLabel.alpha == 0 {
             UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
-                self.rARFPicBt.alpha = 1
-                self.rARFSlider.alpha = 1
-                self.rARFTimeLabel.alpha = 1
-                self.rARFTrimButton.alpha = 1
-                self.rARFMergeButton.alpha = 1
-                self.rARFDurationLabel.alpha = 1
-                self.rARFInsideTrimButton.alpha = 1
-                self.rARFThumnaiIImageView.alpha = 1
+                rARFPicBt.alpha = 1
+                rARFSlider.alpha = 1
+                rARFTimeLabel.alpha = 1
+                rARFTrimButton.alpha = 1
+                rARFMergeButton.alpha = 1
+                rARFDurationLabel.alpha = 1
+                rARFInsideTrimButton.alpha = 1
+                rARFThumnaiIImageView.alpha = 1
             }, completion: nil)
         } else {
             UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
-                self.rARFPicBt.alpha = 0
-                self.rARFSlider.alpha = 0
-                self.rARFTimeLabel.alpha = 0
-                self.rARFTrimButton.alpha = 0
-                self.rARFMergeButton.alpha = 0
-                self.rARFDurationLabel.alpha = 0
-                self.rARFInsideTrimButton.alpha = 0
-                self.rARFThumnaiIImageView.alpha = 0
+                rARFPicBt.alpha = 0
+                rARFSlider.alpha = 0
+                rARFTimeLabel.alpha = 0
+                rARFTrimButton.alpha = 0
+                rARFMergeButton.alpha = 0
+                rARFDurationLabel.alpha = 0
+                rARFInsideTrimButton.alpha = 0
+                rARFThumnaiIImageView.alpha = 0
             }, completion: nil)
         }
     }
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
+
+        guard
+            let rARFSlider = rARFSlider,
+            let rARFPreView = rARFPreView else {
+                return
+        }
 
         let position: CGPoint = sender.location(in: self)
         let value = Float64(position.x) * (self.rARFAVPlayerModel.videoDurationTime() / Float64(self.frame.width))
@@ -152,9 +180,9 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             //Gesture
             self.gestureObject.endPoint = self.lineDashView.frame.origin
             self.gestureObject.endFrame = self.lineDashView.frame
-            self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: self.rARFPreView)
+            self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: rARFPreView)
             self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
-            self.rARFSlider.value = Float(value)
+            rARFSlider.value = Float(value)
             self.ges(value: Float(value))
         }
 
@@ -246,7 +274,14 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     }
 
     private func ges(value: Float) {
-
+        guard
+            let rARFSlider = rARFSlider,
+            let rARFTimeLabel = rARFTimeLabel,
+            let rARFDurationLabel = rARFDurationLabel,
+            let rARFLargePreView = rARFLargePreView,
+            let rARFThumnaiIImageView = rARFThumnaiIImageView else {
+                return
+        }
         let currentTime = rARFAVPlayerModel.videoDurationTime()
         rARFSlider.minimumValue = 0
         rARFSlider.maximumValue = Float(currentTime)
