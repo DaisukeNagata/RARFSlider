@@ -21,23 +21,24 @@ It is a function to edit Video.
 
 - Show or hide the UI by tapping the preview screen
 
-### version 0.4.3
+### version 0.4.4.1
 ```ruby
 You can set it to your favorite design.
 
-    @IBOutlet public var rARFSlider: UISlider!
+    @IBOutlet public weak var rARFSlider: UISlider!
 
-    @IBOutlet public var rARFTimeLabel: UILabel!
-    @IBOutlet public var rARFDurationLabel: UILabel!
+    @IBOutlet public weak var rARFTimeLabel: UILabel!
+    @IBOutlet public weak var rARFDurationLabel: UILabel!
 
-    @IBOutlet public var rARFPicBt: UIButton!
-    @IBOutlet public var rARFTrimButton: UIButton!
-    @IBOutlet public var rARFMergeButton: UIButton!
-    @IBOutlet public var rARFInsideTrimButton: UIButton!
+    @IBOutlet public weak var rARFPicBt: UIButton!
+    @IBOutlet public weak var rARFTrimButton: UIButton!
+    @IBOutlet public weak var rARFMergeButton: UIButton!
+    @IBOutlet public weak var rARFInsideTrimButton: UIButton!
 
-    @IBOutlet public var rARFPreView: RARFPreView!
-    @IBOutlet public var rARFLargePreView: UIImageView!
-    @IBOutlet public var rARFThumnaiIImageView: UIImageView!
+    @IBOutlet public weak var rARFPreView: RARFPreView!
+    @IBOutlet public weak var rARFLargePreView: UIImageView!
+    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView!
+
 ```
 
 ## Example
@@ -84,7 +85,11 @@ class ViewController: RARFPickerViewController {
 
         sliderView.rARFVc = self
         //DESIGNSET
-        sliderView.rARFBorderWidth = 1; sliderView.rARFBorderColor = .white; sliderView.rARFTopDownWhide = 4; sliderView.rARFSideWhide = 8; sliderView.rARFOpacity = 0.7;
+        sliderView.rARFOpacity = 0.7
+        sliderView.rARFSideWhide = 8
+        sliderView.rARFBorderWidth = 1
+        sliderView.rARFTopDownWhide = 4
+        sliderView.rARFBorderColor = .white
         sliderView.rARFSetVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
     }
 }
