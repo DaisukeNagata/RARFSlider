@@ -21,23 +21,23 @@ It is a function to edit Video.
 
 - Show or hide the UI by tapping the preview screen
 
-### version 0.4.4.1
+### version 0.4.5
 ```ruby
 You can set it to your favorite design.
 
-    @IBOutlet public weak var rARFSlider: UISlider!
+    @IBOutlet public weak var rARFSlider: UISlider?
 
-    @IBOutlet public weak var rARFTimeLabel: UILabel!
-    @IBOutlet public weak var rARFDurationLabel: UILabel!
+    @IBOutlet public weak var rARFTimeLabel: UILabel?
+    @IBOutlet public weak var rARFDurationLabel: UILabel?
 
-    @IBOutlet public weak var rARFPicBt: UIButton!
-    @IBOutlet public weak var rARFTrimButton: UIButton!
-    @IBOutlet public weak var rARFMergeButton: UIButton!
-    @IBOutlet public weak var rARFInsideTrimButton: UIButton!
+    @IBOutlet public weak var rARFPicBt: UIButton?
+    @IBOutlet public weak var rARFTrimButton: UIButton?
+    @IBOutlet public weak var rARFMergeButton: UIButton?
+    @IBOutlet public weak var rARFInsideTrimButton: UIButton?
 
-    @IBOutlet public weak var rARFPreView: RARFPreView!
-    @IBOutlet public weak var rARFLargePreView: UIImageView!
-    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView!
+    @IBOutlet public weak var rARFPreView: RARFPreView?
+    @IBOutlet public weak var rARFLargePreView: UIImageView?
+    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView?
 
 ```
 
