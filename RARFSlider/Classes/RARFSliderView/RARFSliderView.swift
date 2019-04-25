@@ -13,7 +13,7 @@ struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
-    @IBOutlet public var rARFSlider: UISlider!
+    @IBOutlet public weak var rARFSlider: UISlider!
 
     @IBOutlet public weak var rARFTimeLabel: UILabel!
     @IBOutlet public weak var rARFDurationLabel: UILabel!
