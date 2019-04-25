@@ -15,17 +15,17 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     @IBOutlet public var rARFSlider: UISlider!
 
-    @IBOutlet public var rARFTimeLabel: UILabel!
-    @IBOutlet public var rARFDurationLabel: UILabel!
+    @IBOutlet public weak var rARFTimeLabel: UILabel!
+    @IBOutlet public weak var rARFDurationLabel: UILabel!
 
-    @IBOutlet public var rARFPicBt: UIButton!
-    @IBOutlet public var rARFTrimButton: UIButton!
-    @IBOutlet public var rARFMergeButton: UIButton!
-    @IBOutlet public var rARFInsideTrimButton: UIButton!
+    @IBOutlet public weak var rARFPicBt: UIButton!
+    @IBOutlet public weak var rARFTrimButton: UIButton!
+    @IBOutlet public weak var rARFMergeButton: UIButton!
+    @IBOutlet public weak var rARFInsideTrimButton: UIButton!
 
-    @IBOutlet public var rARFPreView: RARFPreView!
-    @IBOutlet public var rARFLargePreView: UIImageView!
-    @IBOutlet public var rARFThumnaiIImageView: UIImageView!
+    @IBOutlet public weak var rARFPreView: RARFPreView!
+    @IBOutlet public weak var rARFLargePreView: UIImageView!
+    @IBOutlet public weak var rARFThumnaiIImageView: UIImageView!
 
     public var rARFUrl: URL?
     public var rARFVc: UIViewController?
