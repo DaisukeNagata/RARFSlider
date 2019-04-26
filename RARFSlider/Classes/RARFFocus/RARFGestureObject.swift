@@ -24,15 +24,12 @@ final class RARFGestureObject: UIView {
         
         var leftRect = frame
         leftRect.size.width = CGFloat(64)
-        if leftRect.contains(point) {
-            return TouchFlag.touchSideLeft
-        }
+        if leftRect.contains(point) { return TouchFlag.touchSideLeft }
 
         var rightRect = leftRect
         rightRect.origin.x = frame.maxX - CGFloat(64)
-        if rightRect.contains(point) {
-            return TouchFlag.touchSideRight
-        }
+        if rightRect.contains(point) { return TouchFlag.touchSideRight }
+
         return TouchFlag.none
     }
     //タップされた領域からMaskするViewのサイズ、座標計算

@@ -56,13 +56,13 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         loadNib()
 
         guard
-            let rARFSlider = rARFSlider,
             let rARFPicBt = rARFPicBt,
+            let rARFSlider = rARFSlider,
+            let rARFPreView = rARFPreView,
             let rARFTrimButton = rARFTrimButton,
             let rARFMergeButton = rARFMergeButton,
-            let rARFInsideTrimButton = rARFInsideTrimButton,
-            let rARFPreView = rARFPreView,
-            let rARFLargePreView = rARFLargePreView  else {
+            let rARFLargePreView = rARFLargePreView,
+            let rARFInsideTrimButton = rARFInsideTrimButton else {
             return
         }
         
@@ -128,14 +128,14 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     @objc func tapped(sender: UITapGestureRecognizer) {
         guard
-            let rARFSlider = rARFSlider,
             let rARFPicBt = rARFPicBt,
+            let rARFSlider = rARFSlider,
+            let rARFTimeLabel = rARFTimeLabel,
             let rARFTrimButton = rARFTrimButton,
             let rARFMergeButton = rARFMergeButton,
+            let rARFDurationLabel = rARFDurationLabel,
             let rARFInsideTrimButton = rARFInsideTrimButton,
-            let rARFThumnaiIImageView = rARFThumnaiIImageView,
-            let rARFTimeLabel = rARFTimeLabel,
-            let rARFDurationLabel = rARFDurationLabel else {
+            let rARFThumnaiIImageView = rARFThumnaiIImageView else {
                 return
         }
         if rARFDurationLabel.alpha == 0 {
@@ -277,8 +277,8 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         guard
             let rARFSlider = rARFSlider,
             let rARFTimeLabel = rARFTimeLabel,
-            let rARFDurationLabel = rARFDurationLabel,
             let rARFLargePreView = rARFLargePreView,
+            let rARFDurationLabel = rARFDurationLabel,
             let rARFThumnaiIImageView = rARFThumnaiIImageView else {
                 return
         }

@@ -26,10 +26,7 @@ final class RARFMutableComposition: NSObject {
             try firstTrack.insertTimeRange(CMTimeRangeMake(start: startDuration, duration: endDuration),
                                            of: startAVAsset.tracks(withMediaType: .video)[0],
                                            at: CMTime.zero)
-        } catch let error {
-            print("Failed to load first track", error)
-            return
-        }
+        } catch let error { print(error,"error") }
 
         let mainInstruction = AVMutableVideoCompositionInstruction()
         mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: CMTimeAdd (startDuration, endDuration))
@@ -54,10 +51,7 @@ final class RARFMutableComposition: NSObject {
             try firstTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: endDuration),
                                            of: aVAsset.tracks(withMediaType: .video)[0],
                                            at: CMTime.zero)
-        } catch let error {
-            print("Failed to load second track", error)
-            return
-        }
+        } catch let error { print(error,"error"); return }
 
         guard let secondTrack = mixComposition.addMutableTrack(withMediaType: .video,
                                                                preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
@@ -65,10 +59,7 @@ final class RARFMutableComposition: NSObject {
             try secondTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: endDuration),
                                             of: aVAssetSecound.tracks(withMediaType: .video)[0],
                                             at: aVAsset.duration)
-        } catch let error {
-            print("Failed to load second track", error)
-            return
-        }
+        } catch let error { print(error,"error"); return }
 
         let mainInstruction = AVMutableVideoCompositionInstruction()
         mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: CMTimeAdd (aVAsset.duration, aVAssetSecound.duration))
@@ -96,10 +87,7 @@ final class RARFMutableComposition: NSObject {
             try firstTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: startDuration),
                                            of: aVAsset.tracks(withMediaType: .video)[0],
                                            at: CMTime.zero)
-        } catch let error {
-            print("Failed to load second track", error)
-            return
-        }
+        } catch let error { print(error,"error"); return }
 
         guard let secondTrack = mixComposition.addMutableTrack(withMediaType: .video,
                                                                preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
@@ -109,10 +97,7 @@ final class RARFMutableComposition: NSObject {
             try secondTrack.insertTimeRange(CMTimeRangeMake(start: endDuration, duration: total-startDuration),
                                             of: aVAsset.tracks(withMediaType: .video)[0],
                                             at: CMTime.zero)
-        } catch let error {
-            print("Failed to load second track", error)
-            return
-        }
+        } catch let error { print(error,"error"); return }
 
         let mainInstruction = AVMutableVideoCompositionInstruction()
         mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: total)

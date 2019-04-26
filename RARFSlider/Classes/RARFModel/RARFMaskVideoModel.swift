@@ -36,20 +36,13 @@ public final class RARFMaskVideoModel: NSObject {
     }
 
     private func framesNumber() -> Double {
-        enum CaseNumber: Double {
-            case zero, one, two, three, four, five
-        }
+        enum CaseNumber: Double { case zero, one, two, three, four, five }
         switch duration {
-        case 0..<5:
-            return CaseNumber.five.rawValue
-        case 5..<10:
-            return CaseNumber.four.rawValue
-        case 10..<15:
-            return CaseNumber.three.rawValue
-        default:
-            break
+        case 0..<5: return CaseNumber.five.rawValue
+        case 5..<10: return CaseNumber.four.rawValue
+        case 10..<15: return CaseNumber.three.rawValue
+        default: return CaseNumber.one.rawValue
         }
-        return CaseNumber.one.rawValue
     }
 
     private func videoDuration(videoURL: URL) -> Float64 {

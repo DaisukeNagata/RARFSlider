@@ -42,25 +42,19 @@ final class RARFCALayerView: UIView {
         views.layer.borderColor = borderColor.cgColor
         hollowTargetLayer.bounds = UIScreen.main.bounds
         hollowTargetLayer.frame.size.height = views.frame.height
-        hollowTargetLayer.position = CGPoint(
-            x: hollowTargetLayer.frame.width / 2.0,
-            y: (hollowTargetLayer.bounds.height) / 2.0
-        )
+        hollowTargetLayer.position = CGPoint(x: hollowTargetLayer.frame.width / 2.0, y: (hollowTargetLayer.bounds.height) / 2.0)
 
         hollowTargetLayer.backgroundColor = UIColor.black.cgColor
         hollowTargetLayer.opacity = opacity
 
         maskLayer.bounds = hollowTargetLayer.bounds
 
-        path =  UIBezierPath.init(rect: views.frame)
+        path = UIBezierPath.init(rect: views.frame)
         path.append(UIBezierPath(rect: maskLayer.bounds))
 
         maskLayer.fillColor = UIColor.black.cgColor
         maskLayer.path = path.cgPath
-        maskLayer.position = CGPoint(
-            x: hollowTargetLayer.bounds.width / 2.0,
-            y: (hollowTargetLayer.bounds.height / 2.0)
-        )
+        maskLayer.position = CGPoint(x: hollowTargetLayer.bounds.width / 2.0, y: (hollowTargetLayer.bounds.height / 2.0))
 
         maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
         hollowTargetLayer.mask = maskLayer
