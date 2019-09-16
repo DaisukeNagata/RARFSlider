@@ -94,7 +94,7 @@ final class RARFMutableComposition: NSObject {
 
         let total = totalDuration - (endDuration - startDuration)
         do {
-            try secondTrack.insertTimeRange(CMTimeRangeMake(start: startDuration, duration: total),
+            try secondTrack.insertTimeRange(CMTimeRangeMake(start: endDuration-startDuration, duration: total),
                                             of: aVAsset.tracks(withMediaType: .video)[0],
                                             at: CMTime.zero)
         } catch let error { print(error,"error"); return }
