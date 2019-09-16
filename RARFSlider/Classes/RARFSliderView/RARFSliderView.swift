@@ -267,10 +267,10 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let avAsset = AVAsset(url: urs)
         let currentTime = rARFAVPlayerModel.videoDurationTime()
         let startTime = CMTime(seconds: Float64(startValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        let endDuration = CMTime(seconds: Float64(endValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        let totalTime = CMTime(seconds: Float64(Float(currentTime)), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let endTime = CMTime(seconds: Float64(endValue), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let totalTime = CMTime(seconds: Float64(currentTime), preferredTimescale: CMTimeScale(NSEC_PER_SEC))
 
-        mutableComposition.aVAssetInsideOut(vc: vc, title: "Inside Out", aVAsset: avAsset, startDuration: startTime, endDuration: endDuration, totalDuration: totalTime)
+        mutableComposition.aVAssetInsideOut(vc: vc, title: "Inside Out", aVAsset: avAsset, startDuration: startTime, endDuration: endTime, totalDuration: totalTime)
     }
 
     private func ges(value: Float) {
