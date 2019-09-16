@@ -35,13 +35,13 @@
                     </constraints>
                 </imageView>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="eLB-hK-AUd">
-                    <rect key="frame" x="-2" y="352" width="379" height="22"/>
+                    <rect key="frame" x="-2" y="480" width="379" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="KCK-vy-bDj"/>
                     </constraints>
                 </slider>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-8q-jhB">
-                    <rect key="frame" x="0.0" y="225" width="80" height="80"/>
+                    <rect key="frame" x="0.0" y="380" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="7gJ-xA-aIP"/>
                         <constraint firstAttribute="height" constant="80" id="Oh0-4Y-VcH"/>
@@ -132,9 +132,9 @@
                 <constraint firstItem="cbu-O8-KGn" firstAttribute="top" secondItem="DqO-xM-0tb" secondAttribute="bottom" constant="-43" id="AUX-DF-xBF"/>
                 <constraint firstAttribute="trailing" secondItem="qiJ-0E-e7U" secondAttribute="trailing" constant="17" id="BsR-ez-SGC"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="centerX" secondItem="Sso-NX-aj3" secondAttribute="centerX" constant="-85" id="DC5-2F-iDE"/>
-                <constraint firstItem="Sso-NX-aj3" firstAttribute="top" secondItem="eLB-hK-AUd" secondAttribute="bottom" constant="157" id="GkB-xf-GHE"/>
+                <constraint firstItem="Sso-NX-aj3" firstAttribute="top" secondItem="eLB-hK-AUd" secondAttribute="bottom" constant="29" id="GkB-xf-GHE"/>
                 <constraint firstItem="h4z-Dl-2VV" firstAttribute="top" secondItem="EcJ-fz-td0" secondAttribute="bottom" constant="-33" id="Kyq-yC-LYh"/>
-                <constraint firstItem="eLB-hK-AUd" firstAttribute="top" secondItem="cJ2-8q-jhB" secondAttribute="bottom" constant="47" id="Mjh-lx-1q2"/>
+                <constraint firstItem="eLB-hK-AUd" firstAttribute="top" secondItem="cJ2-8q-jhB" secondAttribute="bottom" constant="20" id="Mjh-lx-1q2"/>
                 <constraint firstItem="cbu-O8-KGn" firstAttribute="top" secondItem="qiJ-0E-e7U" secondAttribute="bottom" constant="-43" id="Pfz-WX-sFD"/>
                 <constraint firstAttribute="trailing" secondItem="eLB-hK-AUd" secondAttribute="trailing" id="R9v-KF-7sI"/>
                 <constraint firstItem="qiJ-0E-e7U" firstAttribute="top" secondItem="cdk-ZE-bND" secondAttribute="top" constant="50" id="TGH-wx-tH8"/>
@@ -147,7 +147,7 @@
                 <constraint firstAttribute="trailing" secondItem="cJ2-8q-jhB" secondAttribute="trailing" constant="295" id="j3D-Fk-bd6"/>
                 <constraint firstItem="cbu-O8-KGn" firstAttribute="leading" secondItem="cJ2-8q-jhB" secondAttribute="leading" id="mos-GM-9Vp"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="centerX" secondItem="cyl-ej-IZV" secondAttribute="centerX" constant="86" id="nLL-9b-YFL"/>
-                <constraint firstItem="cJ2-8q-jhB" firstAttribute="top" secondItem="cbu-O8-KGn" secondAttribute="bottom" constant="90" id="pVn-Oq-HNu"/>
+                <constraint firstItem="cJ2-8q-jhB" firstAttribute="top" secondItem="cbu-O8-KGn" secondAttribute="bottom" constant="245" id="pVn-Oq-HNu"/>
                 <constraint firstItem="eLB-hK-AUd" firstAttribute="leading" secondItem="cJ2-8q-jhB" secondAttribute="leading" id="rri-Xm-Gyh"/>
                 <constraint firstItem="EcJ-fz-td0" firstAttribute="top" secondItem="cyl-ej-IZV" secondAttribute="bottom" constant="13" id="wi0-bP-rbq"/>
                 <constraint firstItem="cJ2-8q-jhB" firstAttribute="leading" secondItem="cdk-ZE-bND" secondAttribute="leading" id="xb8-fB-g2J"/>
