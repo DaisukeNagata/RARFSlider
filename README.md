@@ -43,7 +43,7 @@ You can set it to your favorite design.
 
 ## Example
 <p align="center">
-<img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="285" height="680"><img src="https://user-images.githubusercontent.com/16457165/56300661-54001100-6171-11e9-9fff-63cb1b683447.gif" width="285" height="680"><img src="https://user-images.githubusercontent.com/16457165/64950425-484a7f00-d8b6-11e9-83b0-ac46fe4f26ca.png" width="285" height="680">
+<img src="https://user-images.githubusercontent.com/16457165/55725191-223bcb80-5a48-11e9-8f96-9a8b6fe59892.gif" width="285" height="680"><img src="https://user-images.githubusercontent.com/16457165/56300661-54001100-6171-11e9-9fff-63cb1b683447.gif" width="285" height="680"><img src="https://user-images.githubusercontent.com/16457165/64950961-a166e280-d8b7-11e9-9de3-fea9a87044f1.png" width="285" height="680">
 </p>
 
 ## Requirements
