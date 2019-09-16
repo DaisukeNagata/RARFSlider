@@ -32,9 +32,9 @@ class ViewController: RARFPickerViewController {
         sliderView.rARFVc = self
         //DESIGNSET
         sliderView.rARFOpacity = 0.7
-        sliderView.rARFSideWhide = 8
+        sliderView.rARFSideWhide = 1
         sliderView.rARFBorderWidth = 1
-        sliderView.rARFTopDownWhide = 4
+        sliderView.rARFTopDownWhide = 1
         sliderView.rARFBorderColor = .white
         sliderView.rARFSetVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
     }
