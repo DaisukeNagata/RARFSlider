@@ -21,7 +21,7 @@ final class RARFGestureObject: UIView {
         //タップした領域を取得
         let frame = views.frame
         frame.insetBy(dx: -CGFloat(64), dy: -CGFloat(64))
-        
+
         var leftRect = frame
         leftRect.size.width = CGFloat(64)
         if leftRect.contains(point) { return TouchFlag.touchSideLeft }
@@ -34,7 +34,7 @@ final class RARFGestureObject: UIView {
     }
     //タップされた領域からMaskするViewのサイズ、座標計算
     func updatePoint(point: CGPoint, views: UIView, touchFlag: TouchFlag)  {
-        
+
         switch touchFlag {
         case .touchSideRight:
             views.frame.origin.x = point.x
