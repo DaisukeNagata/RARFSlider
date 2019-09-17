@@ -24,8 +24,8 @@ final public class RARFPreView: UIView {
 
     func loadNib() {
         let bundle = Bundle(for: RARFPreView.self)
-        let view = bundle.loadNibNamed("RARFPreView", owner: self, options: nil)?.first as! UIView
-        view.frame = UIScreen.main.bounds
-        self.addSubview(view)
+        let view = bundle.loadNibNamed("RARFPreView", owner: self, options: nil)?.first as? UIView
+        view?.frame = UIScreen.main.bounds
+        self.addSubview(view ?? UIView())
     }
 }
