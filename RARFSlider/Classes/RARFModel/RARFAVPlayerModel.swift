@@ -23,9 +23,9 @@ public final class RARFAVPlayerModel {
         videoPlayer = AVPlayer(playerItem: playerItem)
     }
 
-    func currentTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.currentTime())!) }
+    func currentTime() -> Float64 { return CMTimeGetSeconds(videoPlayer.currentItem?.currentTime() ?? CMTime()) }
 
-    func videoDurationTime() -> Float64 { return CMTimeGetSeconds((videoPlayer.currentItem?.duration)!) }
+    func videoDurationTime() -> Float64 { return CMTimeGetSeconds(videoPlayer.currentItem?.duration ?? CMTime()) }
 
     func videoSeek(change: Float) { videoPlayer.seek(to:CMTimeMakeWithSeconds(Float64(change), preferredTimescale: Int32(NSEC_PER_SEC))) }
 
