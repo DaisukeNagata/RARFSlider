@@ -112,12 +112,12 @@ public final class RARFMaskVideoModel: NSObject {
 }
 
 private extension UIImage {
-    func ResizeUIImage(width: CGFloat, height: CGFloat) -> UIImage! {
+    func ResizeUIImage(width: CGFloat, height: CGFloat) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height),true,0.0)
 
         self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
 
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
         UIGraphicsEndImageContext()
 
         return newImage
