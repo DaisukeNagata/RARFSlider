@@ -12,7 +12,7 @@ import AVFoundation
 public final class RARFAVPlayerModel {
 
     var url: URL?
-    var videoPlayer: AVPlayer!
+    var videoPlayer: AVPlayer?
     var playerItem: AVPlayerItem?
 
 
@@ -23,11 +23,11 @@ public final class RARFAVPlayerModel {
         videoPlayer = AVPlayer(playerItem: playerItem)
     }
 
-    func currentTime() -> Float64 { return CMTimeGetSeconds(videoPlayer.currentItem?.currentTime() ?? CMTime()) }
+    func currentTime() -> Float64 { return CMTimeGetSeconds(videoPlayer?.currentItem?.currentTime() ?? CMTime()) }
 
-    func videoDurationTime() -> Float64 { return CMTimeGetSeconds(videoPlayer.currentItem?.duration ?? CMTime()) }
+    func videoDurationTime() -> Float64 { return CMTimeGetSeconds(videoPlayer?.currentItem?.duration ?? CMTime()) }
 
-    func videoSeek(change: Float) { videoPlayer.seek(to:CMTimeMakeWithSeconds(Float64(change), preferredTimescale: Int32(NSEC_PER_SEC))) }
+    func videoSeek(change: Float) { videoPlayer?.seek(to:CMTimeMakeWithSeconds(Float64(change), preferredTimescale: Int32(NSEC_PER_SEC))) }
 
     func videoImageViews(nowTime: Float64) -> UIImage {
         let interval = CMTime(seconds: nowTime, preferredTimescale: CMTimeScale(Int32(NSEC_PER_SEC)))
