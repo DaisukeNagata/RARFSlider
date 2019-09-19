@@ -6,7 +6,6 @@
 //  Copyright © 2019 永田大祐. All rights reserved.
 //
 
-import UIKit
 import AVFoundation
 
 public final class RARFAVPlayerModel {
