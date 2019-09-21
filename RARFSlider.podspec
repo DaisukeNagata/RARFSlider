@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RARFSlider'
-  s.version          = '0.5.6'
+  s.version          = '0.5.7'
   s.summary          = 'RARFSlider is a video editing function.'
   s.homepage         = 'https://github.com/daisukenagata/RARFSlider'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/daisukenagata/RARFSlider.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/dbank0208'
   s.ios.deployment_target = '13.0'
+  s.swift_version = '5.0'
   s.source_files = 'RARFSlider/Classes/**/*'
 end
