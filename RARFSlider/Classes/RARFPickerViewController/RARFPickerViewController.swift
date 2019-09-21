@@ -21,6 +21,7 @@ open class RARFPickerViewController: UIViewController, UIImagePickerControllerDe
         guard let urls = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaURL)] as? URL else { return }
         url = urls
         dismiss(animated: true)
+        RARFStructure.callBacks()
     }
 
     // Helper function inserted by Swift 4.2 migrator.
