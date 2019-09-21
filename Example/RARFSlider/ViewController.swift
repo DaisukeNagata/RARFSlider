@@ -17,12 +17,10 @@ class ViewController: RARFPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sliderView.imagePick(vc: self)
+        sliderView.imagePick(vc: self, callBack: callBack)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-
+    func callBack() {
         guard let url = url else  { return }
 
         sliderView.removeFromSuperview()
