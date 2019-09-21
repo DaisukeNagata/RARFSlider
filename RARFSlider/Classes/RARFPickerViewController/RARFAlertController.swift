@@ -26,7 +26,7 @@ final class RARFAlertObject: NSObject {
         let okBt = UIAlertAction(title: "OK", style: .default) {
             action in
             alertController.dismiss(animated: true, completion: nil)
-            DispatchQueue.main.async { composition.exportDidFinish(exporter, url: url)}
+            composition.exportDidFinish(exporter, url: url)
         }
         alertController.addAction(noBt)
         alertController.addAction(okBt)
