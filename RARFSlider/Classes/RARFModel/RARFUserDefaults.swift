@@ -20,9 +20,9 @@ final class RARFUserDefaults {
         defo.set(url, forKey: "pathFileNameOne")
     }
 
-    func loadMethod(st: String) -> URL! {
+    func loadMethod(st: String) -> URL? {
         guard defo.object(forKey:st) != nil else { return nil }
-        return defo.url(forKey: st)!
+        return defo.url(forKey: st)
     }
 
     func removeMethod(st: String) {  defo.removeObject(forKey: st) }
