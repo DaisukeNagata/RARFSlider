@@ -139,7 +139,7 @@ final class RARFMutableComposition: NSObject {
             let rARFDef = RARFUserDefaults()
             rARFDef.saveMethod(url: exporter.outputURL)
             DispatchQueue.main.async {
-            self.alert.alertSave(views: self.vc, title: title,exporter: exporter, composition: self, url: url)
+                self.alert.alertSave(views: self.vc, title: title,exporter: exporter, composition: self, url: url)
             }
         }
     }
