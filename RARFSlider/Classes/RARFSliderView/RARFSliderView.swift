@@ -110,7 +110,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     public func imagePick(vc: UIViewController,callBack: @escaping () -> Void) -> Void {
         let imagePickerModel = RARFImagePickerModel()
         imagePickerModel.mediaSegue(vc: vc, bool: true)
-        RARFStructure.callBacks = callBack
+        RARFStructure.callBack = callBack
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {

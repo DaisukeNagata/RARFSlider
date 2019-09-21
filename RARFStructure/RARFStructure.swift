@@ -11,5 +11,5 @@ struct RARFStructure {
     // Gesche to determine image selection range
     static var swipePanGesture = UIPanGestureRecognizer()
     // VC for bind
-    static var callBacks = { () -> Void in }
+    static var callBack = { () -> Void in }
 }
