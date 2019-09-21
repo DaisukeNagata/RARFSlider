@@ -71,12 +71,10 @@ class ViewController: RARFPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sliderView.imagePick(vc: self)
+        sliderView.imagePick(vc: self, callBack: callBack)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-
+    func callBack() {
         guard let url = url else  { return }
 
         sliderView.removeFromSuperview()
@@ -86,9 +84,9 @@ class ViewController: RARFPickerViewController {
         sliderView.rARFVc = self
         //DESIGNSET
         sliderView.rARFOpacity = 0.7
-        sliderView.rARFSideWhide = 8
+        sliderView.rARFSideWhide = 1
         sliderView.rARFBorderWidth = 1
-        sliderView.rARFTopDownWhide = 4
+        sliderView.rARFTopDownWhide = 1
         sliderView.rARFBorderColor = .white
         sliderView.rARFSetVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
     }
