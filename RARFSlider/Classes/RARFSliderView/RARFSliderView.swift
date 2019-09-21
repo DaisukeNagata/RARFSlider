@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 
-struct CommonStructure { static var swipePanGesture = UIPanGestureRecognizer() }
 
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
@@ -72,9 +71,9 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         rARFSlider.addTarget(self, action: #selector(onChange(change:)), for: .valueChanged)
         rARFInsideTrimButton.addTarget(self, action: #selector(insideTrimBt), for: .touchUpInside)
 
-        CommonStructure.swipePanGesture = UIPanGestureRecognizer(target: self, action:#selector(panTapped))
-        CommonStructure.swipePanGesture.delegate = self
-        self.addGestureRecognizer(CommonStructure.swipePanGesture)
+        RARFStructure.swipePanGesture = UIPanGestureRecognizer(target: self, action:#selector(panTapped))
+        RARFStructure.swipePanGesture.delegate = self
+        self.addGestureRecognizer(RARFStructure.swipePanGesture)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.addGestureRecognizer(tap)
@@ -108,9 +107,10 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         loadNib()
     }
 
-    public func imagePick(vc: UIViewController) {
+    public func imagePick(vc: UIViewController,callBack: @escaping () -> Void) -> Void {
         let imagePickerModel = RARFImagePickerModel()
         imagePickerModel.mediaSegue(vc: vc, bool: true)
+        RARFStructure.callBacks = callBack
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
