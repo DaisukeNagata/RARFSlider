@@ -75,9 +75,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         RARFStructure.swipePanGesture.delegate = self
         self.addGestureRecognizer(RARFStructure.swipePanGesture)
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        self.addGestureRecognizer(tap)
-
         rARFPreView.backgroundColor = UIColor.clear
         rARFPreView.layer.addSublayer(cALayerView.hollowTargetLayer)
         rARFPreView.addSubview(cALayerView)
@@ -124,43 +121,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let view = bundle.loadNibNamed("RARFSliderView", owner: self, options: nil)?.first as! UIView
         view.frame = UIScreen.main.bounds
         self.addSubview(view)
-    }
-
-    @objc func tapped(sender: UITapGestureRecognizer) {
-        guard
-            let rARFPicBt = rARFPicBt,
-            let rARFSlider = rARFSlider,
-            let rARFTimeLabel = rARFTimeLabel,
-            let rARFTrimButton = rARFTrimButton,
-            let rARFMergeButton = rARFMergeButton,
-            let rARFDurationLabel = rARFDurationLabel,
-            let rARFInsideTrimButton = rARFInsideTrimButton,
-            let rARFThumnaiIImageView = rARFThumnaiIImageView else {
-                return
-        }
-        if rARFDurationLabel.alpha == 0 {
-            UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
-                rARFPicBt.alpha = 1
-                rARFSlider.alpha = 1
-                rARFTimeLabel.alpha = 1
-                rARFTrimButton.alpha = 1
-                rARFMergeButton.alpha = 1
-                rARFDurationLabel.alpha = 1
-                rARFInsideTrimButton.alpha = 1
-                rARFThumnaiIImageView.alpha = 1
-            }, completion: nil)
-        } else {
-            UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseOut], animations: {
-                rARFPicBt.alpha = 0
-                rARFSlider.alpha = 0
-                rARFTimeLabel.alpha = 0
-                rARFTrimButton.alpha = 0
-                rARFMergeButton.alpha = 0
-                rARFDurationLabel.alpha = 0
-                rARFInsideTrimButton.alpha = 0
-                rARFThumnaiIImageView.alpha = 0
-            }, completion: nil)
-        }
     }
 
     @objc func panTapped(sender: UIPanGestureRecognizer) {
