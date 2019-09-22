@@ -174,8 +174,32 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let position: CGPoint = sender.location(in: self)
         let value = Float64(position.x) * (self.rARFAVPlayerModel.videoDurationTime() / Float64(self.frame.width))
 
-        self.cALayerView.tori(views: self.lineDashView, sideWhide: self.rARFSideWhide, topDownWhide: self.rARFTopDownWhide, borderWidth: self.rARFBorderWidth, borderColor: self.rARFBorderColor, opacity: self.rARFOpacity)
-
+        switch sender.state {
+               case .ended:
+                   switch self.touchFlag {
+                   case .touchSideRight:
+                       self.endValue = Float(value)
+                       break
+                   case .touchSideLeft:
+                       self.startValue = Float(value)
+                       break
+                   case .none:
+                       break
+                   }
+                   break
+               case .possible:
+                   break
+               case .began:
+                   break
+               case .changed:
+                   break
+               case .cancelled:
+                   break
+               case .failed:
+                   break
+               @unknown default:
+                   break
+               }
         DispatchQueue.main.async {
             //Gesture
             self.gestureObject.endPoint = self.lineDashView.frame.origin
@@ -184,33 +208,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
             rARFSlider.value = Float(value)
             self.ges(value: Float(value))
-            
-            switch sender.state {
-            case .ended:
-                switch self.touchFlag {
-                case .touchSideRight:
-                    self.endValue = Float(value)
-                    break
-                case .touchSideLeft:
-                    self.startValue = Float(value)
-                    break
-                case .none:
-                    break
-                }
-                break
-            case .possible:
-                break
-            case .began:
-                break
-            case .changed:
-                break
-            case .cancelled:
-                break
-            case .failed:
-                break
-            @unknown default:
-                break
-            }
+            self.cALayerView.tori(views: self.lineDashView, sideWhide: self.rARFSideWhide, topDownWhide: self.rARFTopDownWhide, borderWidth: self.rARFBorderWidth, borderColor: self.rARFBorderColor, opacity: self.rARFOpacity)
         }
     }
 
