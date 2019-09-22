@@ -15,7 +15,7 @@ final class RARFMutableComposition: NSObject {
 
     private var vc = UIViewController()
     private var alert = RARFAlertObject()
-    private let mixComposition = AVMutableComposition()
+    private var mixComposition = AVMutableComposition()
 
 
     func aVAssetMerge(vc: UIViewController, title: String,  startAVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime) {
@@ -150,6 +150,8 @@ final class RARFMutableComposition: NSObject {
     }
 
     func exportDidFinish(_ session: AVAssetExportSession) {
+        print(session.status.rawValue,"session.status")
+        mixComposition = AVMutableComposition()
         guard session.status == AVAssetExportSession.Status.completed, let outputURL = session.outputURL else { return }
         let saveVideoToPhotos = {
             PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) {
