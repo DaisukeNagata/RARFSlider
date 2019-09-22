@@ -175,31 +175,27 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         let value = Float64(position.x) * (self.rARFAVPlayerModel.videoDurationTime() / Float64(self.frame.width))
 
         switch sender.state {
-               case .ended:
-                   switch self.touchFlag {
-                   case .touchSideRight:
-                       self.endValue = Float(value)
-                       break
-                   case .touchSideLeft:
-                       self.startValue = Float(value)
-                       break
-                   case .none:
-                       break
-                   }
-                   break
-               case .possible:
-                   break
-               case .began:
-                   break
-               case .changed:
-                   break
-               case .cancelled:
-                   break
-               case .failed:
-                   break
-               @unknown default:
-                   break
-               }
+        case .ended:
+            switch self.touchFlag {
+            case .touchSideRight:
+                self.endValue = Float(value)
+                break
+            case .touchSideLeft:
+                self.startValue = Float(value)
+                break
+            case .none:
+                break
+            }
+            break
+        case .possible   : break
+        case .began:
+            self.startValue = Float(value)
+            break
+        case .changed    : break
+        case .cancelled  : break
+        case .failed     : break
+        @unknown default : break
+        }
         DispatchQueue.main.async {
             //Gesture
             self.gestureObject.endPoint = self.lineDashView.frame.origin
