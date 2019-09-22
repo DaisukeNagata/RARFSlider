@@ -10,7 +10,7 @@ import AVFoundation
 
 final class RARFAlertObject: NSObject {
 
-    func alertSave(views: UIViewController, title: String,exporter: AVAssetExportSession, composition: RARFMutableComposition, url: URL) {
+    func alertSave(views: UIViewController, title: String,exporter: AVAssetExportSession, composition: RARFMutableComposition) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let stringAttributes: [NSAttributedString.Key : Any] = [
             .foregroundColor : UIColor(red: 0/255, green: 136/255, blue: 83/255, alpha: 1.0),
@@ -26,7 +26,7 @@ final class RARFAlertObject: NSObject {
         let okBt = UIAlertAction(title: "OK", style: .default) {
             action in
             alertController.dismiss(animated: true, completion: nil)
-            composition.exportDidFinish(exporter, url: url)
+            composition.exportDidFinish(exporter)
         }
         alertController.addAction(noBt)
         alertController.addAction(okBt)

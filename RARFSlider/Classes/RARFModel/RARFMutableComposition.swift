@@ -144,12 +144,12 @@ final class RARFMutableComposition: NSObject {
             let rARFDef = RARFUserDefaults()
             rARFDef.saveMethod(url: exporter.outputURL)
             DispatchQueue.main.async {
-                self.alert.alertSave(views: self.vc, title: title,exporter: exporter, composition: self, url: url)
+                self.alert.alertSave(views: self.vc, title: title,exporter: exporter, composition: self)
             }
         }
     }
 
-    func exportDidFinish(_ session: AVAssetExportSession, url: URL) {
+    func exportDidFinish(_ session: AVAssetExportSession) {
         guard session.status == AVAssetExportSession.Status.completed, let outputURL = session.outputURL else { return }
         let saveVideoToPhotos = {
             PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) {
