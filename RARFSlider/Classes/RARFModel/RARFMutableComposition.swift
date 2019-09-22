@@ -127,7 +127,7 @@ final class RARFMutableComposition: NSObject {
 
         let date = dateFormatter.string(from: Date())
         let num = arc4random() % 100000000
-        let url = documentDirectory.appendingPathComponent(num.description + "\(date)temp.mp4")
+        let url = documentDirectory.appendingPathComponent(num.description + "\(date)temp.mov")
 
         guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else { return }
 
