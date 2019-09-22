@@ -28,10 +28,10 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     public var rARFUrl: URL?
     public var rARFVc: UIViewController?
-    public var rARFOpacity: Float = 1.0
-    public var rARFSideWhide: CGFloat = 1.0
-    public var rARFBorderWidth: CGFloat = 1.0
-    public var rARFTopDownWhide: CGFloat = 1.0
+    public var rARFOpacity: Float = 0.0
+    public var rARFSideWhide: CGFloat = 0.0
+    public var rARFBorderWidth: CGFloat = 0.0
+    public var rARFTopDownWhide: CGFloat = 0.0
     public var rARFBorderColor: UIColor = .white
     public var rARFAVPlayerModel = RARFAVPlayerModel()
     public var rARFSetVideoModel = RARFMaskVideoModel()
