@@ -209,7 +209,6 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             case .failed:
                 break
             @unknown default:
-                self.startValue = Float(value)
                 break
             }
         }
