@@ -55,6 +55,11 @@ final class RARFMutableComposition: NSObject {
 
         guard let secondTrack = mixComposition.addMutableTrack(withMediaType: .video,
                                                                preferredTrackID: Int32(kCMPersistentTrackID_Invalid)) else { return }
+        guard aVAssetSecound.tracks(withMediaType: .video).count != 0 else {
+            alert.alertSave(views: vc)
+            return
+        }
+
         do {
             try secondTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: endDuration),
                                             of: aVAssetSecound.tracks(withMediaType: .video)[0],
