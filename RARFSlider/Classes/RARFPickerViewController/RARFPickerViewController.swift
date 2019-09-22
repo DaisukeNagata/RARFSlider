@@ -24,6 +24,11 @@ open class RARFPickerViewController: UIViewController, UIImagePickerControllerDe
         RARFStructure.callBack()
     }
 
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+        RARFStructure.callBack()
+    }
+
     // Helper function inserted by Swift 4.2 migrator.
     public func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
         return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
