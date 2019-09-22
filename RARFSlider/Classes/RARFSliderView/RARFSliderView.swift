@@ -188,9 +188,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             }
             break
         case .possible   : break
-        case .began:
-            self.startValue = Float(value)
-            break
+        case .began      : break
         case .changed    : break
         case .cancelled  : break
         case .failed     : break
