@@ -129,7 +129,7 @@ final class RARFMutableComposition: NSObject {
         let num = arc4random() % 100000000
         let url = documentDirectory.appendingPathComponent(num.description + "\(date)temp.mov")
 
-        guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else { return }
+        guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHEVCHighestQuality) else { return }
 
         exporter.outputURL = url
         exporter.outputFileType = AVFileType.mov
