@@ -11,28 +11,25 @@ import RARFSlider
 
 class ViewController: RARFPickerViewController {
 
-    @IBOutlet private var sliderView: RARFSliderView!
-
+    private var sliderView: RARFSliderView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sliderView.imagePick(vc: self, callBack: callBack)
+        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        view.addSubview(sliderView ?? RARFSliderView())
+        sliderView?.imagePick(vc: self, callBack: callBack)
     }
 
     func callBack() {
         guard let url = url else  { return }
 
-        sliderView.removeFromSuperview()
-        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        view.addSubview(sliderView)
-
-        sliderView.rARFVc = self
+        sliderView?.rARFVc = self
         //DESIGNSET
-        sliderView.rARFOpacity = 0.7
-        sliderView.rARFBorderWidth = 1
-        sliderView.rARFTopDownWhide = 1
-        sliderView.rARFBorderColor = .white
-        sliderView.rARFSetVideoModel.setURL(url: url, sliderView: sliderView, height: 100, heightY: 100)
+        sliderView?.rARFOpacity = 0.7
+        sliderView?.rARFBorderWidth = 1
+        sliderView?.rARFTopDownWhide = 1
+        sliderView?.rARFBorderColor = .white
+        sliderView?.rARFSetVideoModel.setURL(url: url, sliderView: sliderView ?? RARFSliderView(), height: 100, heightY: 100)
     }
 }
