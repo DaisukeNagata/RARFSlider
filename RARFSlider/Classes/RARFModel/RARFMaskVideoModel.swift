@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+@available(iOS 13.0, *)
 public final class RARFMaskVideoModel: NSObject {
 
     private var height: CGFloat?

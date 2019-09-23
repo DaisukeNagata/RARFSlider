@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 
+@available(iOS 13.0, *)
 final class RARFAlertObject: NSObject {
 
     func alertSave(views: UIViewController, title: String,exporter: AVAssetExportSession, composition: RARFMutableComposition) {

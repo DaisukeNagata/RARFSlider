@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 
+@available(iOS 13.0, *)
 public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
 
     @IBOutlet public weak var rARFSlider: UISlider?

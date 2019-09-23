@@ -11,6 +11,7 @@ import Photos
 import MediaPlayer
 import MobileCoreServices
 
+@available(iOS 13.0, *)
 final class RARFMutableComposition: NSObject {
 
     private var vc = UIViewController()
@@ -70,7 +71,7 @@ final class RARFMutableComposition: NSObject {
         mainInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: CMTimeAdd (aVAsset.duration, aVAssetSecound.duration))
 
         let firstInstruction = videoCompositionInstruction(firstTrack, asset: aVAsset)
-        firstInstruction.setOpacity(0.0, at: aVAsset.duration)
+        firstInstruction.setOpacity(0.0, at: endDuration)
 
         let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAssetSecound)
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
@@ -111,6 +112,7 @@ final class RARFMutableComposition: NSObject {
         firstInstruction.setOpacity(0.0, at: startDuration)
 
         let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAsset)
+        secondInstruction.setOpacity(0.0, at: endDuration)
 
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
 
@@ -134,7 +136,7 @@ final class RARFMutableComposition: NSObject {
         let num = arc4random() % 100000000
         let url = documentDirectory.appendingPathComponent(num.description + "\(date)temp.mov")
 
-        guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else { return }
+        guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHEVCHighestQualityWithAlpha) else { return }
 
         exporter.outputURL = url
         exporter.outputFileType = AVFileType.mov
