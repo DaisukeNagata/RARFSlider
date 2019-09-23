@@ -36,12 +36,12 @@ final class RARFMutableComposition: NSObject {
         firstInstruction.setOpacity(0.0, at: endDuration)
         mainInstruction.layerInstructions = [firstInstruction]
 
-        let mainCompositions = AVMutableVideoComposition()
-        mainCompositions.instructions = [mainInstruction]
-        mainCompositions.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        mainCompositions.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let mainComposition = AVMutableVideoComposition()
+        mainComposition.instructions = [mainInstruction]
+        mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+        mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
 
-        aVAssetExportSet(title: title, mainComposition: mainCompositions)
+        aVAssetExportSet(title: title, mainComposition: mainComposition)
     }
 
     func aVAssetMerge(vc: UIViewController, title: String, aVAsset: AVAsset, aVAssetSecound:AVAsset, startDuration: CMTime, endDuration: CMTime) {
@@ -79,7 +79,7 @@ final class RARFMutableComposition: NSObject {
         let mainComposition = AVMutableVideoComposition()
         mainComposition.instructions = [mainInstruction]
         mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        mainComposition.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
 
         aVAssetExportSet(title: title, mainComposition: mainComposition)
     }
@@ -119,7 +119,7 @@ final class RARFMutableComposition: NSObject {
         let mainComposition = AVMutableVideoComposition()
         mainComposition.instructions = [mainInstruction]
         mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        mainComposition.renderSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
 
         aVAssetExportSet(title: title, mainComposition: mainComposition)
     }
