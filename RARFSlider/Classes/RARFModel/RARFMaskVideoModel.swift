@@ -108,6 +108,7 @@ public final class RARFMaskVideoModel: NSObject {
                 sliderView.rARFPreView?.addSubview(imageViews); sliderView.rARFPreView?.sendSubviewToBack(imageViews)
                 xPos += CGFloat(width)
             }
+            sliderView.cALayerView.tori(views: sliderView.lineDashView, sideWhide: sliderView.rARFSideWhide, topDownWhide: sliderView.rARFTopDownWhide, borderWidth: sliderView.rARFBorderWidth, borderColor: sliderView.rARFBorderColor, opacity: sliderView.rARFOpacity)
         }
     }
 }
