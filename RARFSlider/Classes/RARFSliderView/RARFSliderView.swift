@@ -91,18 +91,11 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
             return
         }
 
-        self.cALayerView.tori(views: self.lineDashView,
-                              sideWhide: self.rARFSideWhide,
-                              topDownWhide: self.rARFTopDownWhide,
-                              borderWidth: self.rARFBorderWidth,
-                              borderColor: self.rARFBorderColor,
-                              opacity: self.rARFOpacity)
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        loadNib()
     }
 
     public func imagePick(vc: UIViewController,callBack: @escaping () -> Void) -> Void {
