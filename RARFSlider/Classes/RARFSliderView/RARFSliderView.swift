@@ -37,14 +37,15 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     public var rARFAVPlayerModel = RARFAVPlayerModel()
     public var rARFSetVideoModel = RARFMaskVideoModel()
 
+    var lineDashView = RARFLineDashView()
+    var cALayerView = RARFCALayerView()
+
     private var endValue: Float?
     private var startValue: Float?
     private var nowTime = CGFloat()
     private var currentValue = Float()
     private var alert = RARFAlertObject()
     private var rARFDef = RARFUserDefaults()
-    private var cALayerView = RARFCALayerView()
-    private var lineDashView = RARFLineDashView()
     private var gestureObject = RARFGestureObject()
     private var touchFlag = TouchFlag.touchSideLeft
     private var mutableComposition = RARFMutableComposition()
