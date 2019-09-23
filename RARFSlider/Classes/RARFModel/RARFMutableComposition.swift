@@ -112,7 +112,6 @@ final class RARFMutableComposition: NSObject {
         firstInstruction.setOpacity(0.0, at: startDuration)
 
         let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAsset)
-        secondInstruction.setOpacity(0.0, at: endDuration)
 
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
 
