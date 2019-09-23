@@ -205,10 +205,17 @@ final class RARFMutableComposition: NSObject {
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             instruction.setTransform(assetTrack.preferredTransform.concatenating(scaleFactor), at: CMTime.zero)
         } else {
+            var concat = CGAffineTransform()
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            var concat = assetTrack.preferredTransform.concatenating(scaleFactor)
-                .concatenating(CGAffineTransform(translationX: 0, y: scaleToFitRatio))
 
+            if UIScreen.main.bounds.height > UIScreen.main.bounds.width {
+                concat = assetTrack.preferredTransform.concatenating(scaleFactor)
+                    .concatenating(CGAffineTransform(translationX: 0, y: 0))
+            } else {
+                concat = assetTrack.preferredTransform.concatenating(scaleFactor)
+                    .concatenating(CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 - assetTrack.naturalSize.height/3))
+            }
+        
             if assetInfo.orientation == .down {
                 let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                 let windowBounds = UIScreen.main.bounds
