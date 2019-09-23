@@ -36,12 +36,7 @@ final class RARFMutableComposition: NSObject {
         firstInstruction.setOpacity(0.0, at: endDuration)
         mainInstruction.layerInstructions = [firstInstruction]
 
-        let mainComposition = AVMutableVideoComposition()
-        mainComposition.instructions = [mainInstruction]
-        mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
-
-        aVAssetExportSet(title: title, mainComposition: mainComposition)
+        mainCompositions(title: title, mainInstruction: mainInstruction)
     }
 
     func aVAssetMerge(vc: UIViewController, title: String, aVAsset: AVAsset, aVAssetSecound:AVAsset, startDuration: CMTime, endDuration: CMTime) {
@@ -76,12 +71,7 @@ final class RARFMutableComposition: NSObject {
         let secondInstruction = videoCompositionInstruction(secondTrack, asset: aVAssetSecound)
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
 
-        let mainComposition = AVMutableVideoComposition()
-        mainComposition.instructions = [mainInstruction]
-        mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
-
-        aVAssetExportSet(title: title, mainComposition: mainComposition)
+        mainCompositions(title: title, mainInstruction: mainInstruction)
     }
 
     func aVAssetInsideOut(vc: UIViewController, title: String, aVAsset: AVAsset, startDuration: CMTime, endDuration: CMTime, totalDuration: CMTime) {
@@ -115,15 +105,22 @@ final class RARFMutableComposition: NSObject {
 
         mainInstruction.layerInstructions = [firstInstruction,secondInstruction]
 
+        mainCompositions(title: title, mainInstruction: mainInstruction)
+    }
+
+    private func mainCompositions(title            : String,
+                                  mainInstruction  : AVMutableVideoCompositionInstruction? = nil) {
+        guard let main = mainInstruction else { return }
+
         let mainComposition = AVMutableVideoComposition()
-        mainComposition.instructions = [mainInstruction]
+        mainComposition.instructions = [main]
         mainComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
         mainComposition.renderSize = CGSize(width: ceil(UIScreen.main.bounds.width / 2) * 2, height: ceil(UIScreen.main.bounds.height / 2) * 2)
 
         aVAssetExportSet(title: title, mainComposition: mainComposition)
     }
 
-    func aVAssetExportSet(title: String, mainComposition: AVMutableVideoComposition) {
+    private func aVAssetExportSet(title: String, mainComposition: AVMutableVideoComposition) {
 
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
 
@@ -172,7 +169,7 @@ final class RARFMutableComposition: NSObject {
         }
     }
 
-    func orientationFromTransform(_ transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool) {
+    private func orientationFromTransform(_ transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool) {
 
         var assetOrientation = UIImage.Orientation.up
         var isPortrait = false
@@ -190,7 +187,7 @@ final class RARFMutableComposition: NSObject {
         return (assetOrientation, isPortrait)
     }
 
-    func videoCompositionInstruction(_ track: AVCompositionTrack, asset: AVAsset) -> AVMutableVideoCompositionLayerInstruction {
+    private func videoCompositionInstruction(_ track: AVCompositionTrack, asset: AVAsset) -> AVMutableVideoCompositionLayerInstruction {
 
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
         let assetTrack = asset.tracks(withMediaType: AVMediaType.video)[0]
