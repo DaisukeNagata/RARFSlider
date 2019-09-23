@@ -207,7 +207,7 @@ final class RARFMutableComposition: NSObject {
         } else {
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             var concat = assetTrack.preferredTransform.concatenating(scaleFactor)
-                .concatenating(CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height/2 - assetTrack.naturalSize.height/3))
+                .concatenating(CGAffineTransform(translationX: 0, y: scaleToFitRatio))
 
             if assetInfo.orientation == .down {
                 let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
