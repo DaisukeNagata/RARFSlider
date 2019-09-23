@@ -172,7 +172,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     @objc func onChange(change: UISlider) { ges(value: change.value) }
 
     @objc func mergeBt() {
-        guard let startValue = startValue, let endValue = endValue, let vc = rARFVc else { return }
+        guard let startValue = startValue, let endValue = endValue, let vc = rARFVc else { alert.alertSave(views: rARFVc ?? UIViewController());return }
         guard let urlOne = rARFDef.loadMethod(st: "pathFileNameOne") else { alert.alertSave(views: vc); return}
         guard let urlSecound = rARFDef.loadMethod(st: "pathFileNameSecound") else { alert.alertSave(views: vc); return }
 
