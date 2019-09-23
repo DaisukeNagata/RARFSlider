@@ -208,7 +208,7 @@ final class RARFMutableComposition: NSObject {
             var concat = CGAffineTransform()
             let scaleFactor = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
 
-            if UIScreen.main.bounds.height > UIScreen.main.bounds.width {
+            if assetTrack.naturalSize.height > assetTrack.naturalSize.width {
                 concat = assetTrack.preferredTransform.concatenating(scaleFactor)
                     .concatenating(CGAffineTransform(translationX: 0, y: 0))
             } else {
