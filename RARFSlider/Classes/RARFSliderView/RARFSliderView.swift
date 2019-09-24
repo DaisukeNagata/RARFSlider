@@ -149,16 +149,14 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
         case .failed     : break
         @unknown default : break
         }
-        DispatchQueue.main.async {
-            //Gesture
-            self.gestureObject.endPoint = self.lineDashView.frame.origin
-            self.gestureObject.endFrame = self.lineDashView.frame
-            self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: rARFPreView)
-            self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
-            rARFSlider.value = Float(value)
-            self.ges(value: Float(value))
-            self.cALayerView.tori(views: self.lineDashView, sideWhide: self.rARFSideWhide, topDownWhide: self.rARFTopDownWhide, borderWidth: self.rARFBorderWidth, borderColor: self.rARFBorderColor, opacity: self.rARFOpacity)
-        }
+        //Gesture
+        self.gestureObject.endPoint = self.lineDashView.frame.origin
+        self.gestureObject.endFrame = self.lineDashView.frame
+        self.touchFlag = self.gestureObject.cropEdgeForPoint(point: self.gestureObject.framePoint, views: rARFPreView)
+        self.gestureObject.updatePoint(point: position, views: self.lineDashView, touchFlag: self.touchFlag)
+        rARFSlider.value = Float(value)
+        self.ges(value: Float(value))
+        self.cALayerView.tori(views: self.lineDashView, sideWhide: self.rARFSideWhide, topDownWhide: self.rARFTopDownWhide, borderWidth: self.rARFBorderWidth, borderColor: self.rARFBorderColor, opacity: self.rARFOpacity)
     }
 
     @objc func pickBt() {
