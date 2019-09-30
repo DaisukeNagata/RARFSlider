@@ -106,7 +106,7 @@
 		BBBA26D9225B3A91008AACFE /* RARFMaskVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26CD225B3A91008AACFE /* RARFMaskVideoModel.swift */; };
 		BBBA26DA225B3A91008AACFE /* RARFMutableComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26CE225B3A91008AACFE /* RARFMutableComposition.swift */; };
 		BBBA26DB225B3A91008AACFE /* RARFAVPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26CF225B3A91008AACFE /* RARFAVPlayerModel.swift */; };
-		BBBA26DC225B3A91008AACFE /* RARFGestureObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26D1225B3A91008AACFE /* RARFGestureObject.swift */; };
+		BBBA26DC225B3A91008AACFE /* RARFFocusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26D1225B3A91008AACFE /* RARFFocusModel.swift */; };
 		BBBA26DD225B3A91008AACFE /* RARFLineDashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26D2225B3A91008AACFE /* RARFLineDashView.swift */; };
 		BBBA26DE225B3A91008AACFE /* RARFFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26D3225B3A91008AACFE /* RARFFocusView.swift */; };
 		BBBA26DF225B3A91008AACFE /* RARFPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBA26D5225B3A91008AACFE /* RARFPickerViewController.swift */; };
@@ -292,7 +292,7 @@
 		BBBA26CD225B3A91008AACFE /* RARFMaskVideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFMaskVideoModel.swift; sourceTree = "<group>"; };
 		BBBA26CE225B3A91008AACFE /* RARFMutableComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFMutableComposition.swift; sourceTree = "<group>"; };
 		BBBA26CF225B3A91008AACFE /* RARFAVPlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFAVPlayerModel.swift; sourceTree = "<group>"; };
-		BBBA26D1225B3A91008AACFE /* RARFGestureObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFGestureObject.swift; sourceTree = "<group>"; };
+		BBBA26D1225B3A91008AACFE /* RARFFocusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFFocusModel.swift; sourceTree = "<group>"; };
 		BBBA26D2225B3A91008AACFE /* RARFLineDashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFLineDashView.swift; sourceTree = "<group>"; };
 		BBBA26D3225B3A91008AACFE /* RARFFocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFFocusView.swift; sourceTree = "<group>"; };
 		BBBA26D5225B3A91008AACFE /* RARFPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFPickerViewController.swift; sourceTree = "<group>"; };
@@ -702,7 +702,7 @@
 		BBBA26D0225B3A91008AACFE /* RARFFocusModel */ = {
 			isa = PBXGroup;
 			children = (
-				BBBA26D1225B3A91008AACFE /* RARFGestureObject.swift */,
+				BBBA26D1225B3A91008AACFE /* RARFFocusModel.swift */,
 			);
 			name = RARFFocusModel;
 			path = RARFSlider/Classes/RARFFocusModel;
@@ -980,7 +980,7 @@
 				BBBA26E0225B3A91008AACFE /* RARFImagePickerModel.swift in Sources */,
 				BBBA26D8225B3A91008AACFE /* RARFSliderView.swift in Sources */,
 				BB0BD7A1225E2FA700AA34FD /* RARFAlertController.swift in Sources */,
-				BBBA26DC225B3A91008AACFE /* RARFGestureObject.swift in Sources */,
+				BBBA26DC225B3A91008AACFE /* RARFFocusModel.swift in Sources */,
 				BB937B8423425A4C00490731 /* RARFUserDefaults.swift in Sources */,
 				BBBA26DE225B3A91008AACFE /* RARFFocusView.swift in Sources */,
 				A1D4DF7C640C49AED689EEEC055A9A0D /* RARFSlider-dummy.m in Sources */,
