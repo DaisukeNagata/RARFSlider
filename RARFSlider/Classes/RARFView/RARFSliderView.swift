@@ -46,7 +46,7 @@ public final class RARFSliderView: UIView, UIGestureRecognizerDelegate {
     private var currentValue = Float()
     private var alert = RARFAlertObject()
     private var rARFDef = RARFUserDefaults()
-    private var gestureObject = RARFGestureObject()
+    private var gestureObject = RARFFocusModel()
     private var touchFlag = TouchFlag.touchSideLeft
     private var mutableComposition = RARFMutableComposition()
 

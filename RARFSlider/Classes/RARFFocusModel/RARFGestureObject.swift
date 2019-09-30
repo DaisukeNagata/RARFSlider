@@ -1,5 +1,5 @@
 //
-//  RARFGestureObject.swift
+//  RARFFocusModel.swift
 //  RARFSlider
 //
 //  Created by 永田大祐 on 2018/06/30.
@@ -10,7 +10,7 @@ import UIKit
 
 enum TouchFlag { case none, touchSideLeft, touchSideRight }
 
-final class RARFGestureObject: UIView {
+final class RARFFocusModel {
 
     var endPoint = CGPoint()
     var endFrame = CGRect()
