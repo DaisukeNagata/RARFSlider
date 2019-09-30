@@ -96,8 +96,8 @@
 		B1C3BC463157B8E173D39969DDC2C80B /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F780876D2683F15D6BC2D791514E7DB /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3C071A4F47370E2FECA8B99C651FBEA /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42A7B99EDC0436124E92C6F0D875BF4 /* Configuration.swift */; };
 		B53D204E583D7836146C78F4F2E8E1E6 /* NimbleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204877CC4E6179C2F5B8DBADEA46AC6 /* NimbleEnvironment.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
-		BB0BD79D225E23C900AA34FD /* RARFUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BD79B225E1F7C00AA34FD /* RARFUserDefaults.swift */; };
 		BB0BD7A1225E2FA700AA34FD /* RARFAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0BD79F225E2F1900AA34FD /* RARFAlertController.swift */; };
+		BB937B8423425A4C00490731 /* RARFUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB937B8323425A4C00490731 /* RARFUserDefaults.swift */; };
 		BBB5DA1222675D1900CB24F5 /* RARFPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5DA1022675CAF00CB24F5 /* RARFPreView.swift */; };
 		BBB5DA152267600500CB24F5 /* RARFPreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB5DA1322675D6D00CB24F5 /* RARFPreView.xib */; };
 		BBB9A9EA233616CA0037798E /* RARFStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9A9E9233616CA0037798E /* RARFStructure.swift */; };
@@ -282,8 +282,8 @@
 		B7133AF219976234362402003D5B4548 /* ErrorUtility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ErrorUtility.swift; path = Sources/Quick/ErrorUtility.swift; sourceTree = "<group>"; };
 		B82DA1821BE7722BE372D7CF2E242109 /* Behavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Behavior.swift; path = Sources/Quick/Behavior.swift; sourceTree = "<group>"; };
 		B9F690E4B3916C9F59AF253322655F9D /* BeCloseTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeCloseTo.swift; path = Sources/Nimble/Matchers/BeCloseTo.swift; sourceTree = "<group>"; };
-		BB0BD79B225E1F7C00AA34FD /* RARFUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RARFUserDefaults.swift; sourceTree = "<group>"; };
 		BB0BD79F225E2F1900AA34FD /* RARFAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RARFAlertController.swift; sourceTree = "<group>"; };
+		BB937B8323425A4C00490731 /* RARFUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RARFUserDefaults.swift; path = ../RARFSlider/Classes/RARFDefaults/RARFUserDefaults.swift; sourceTree = "<group>"; };
 		BBB5DA1022675CAF00CB24F5 /* RARFPreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RARFPreView.swift; sourceTree = "<group>"; };
 		BBB5DA1322675D6D00CB24F5 /* RARFPreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RARFPreView.xib; sourceTree = "<group>"; };
 		BBB9A9E9233616CA0037798E /* RARFStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RARFStructure.swift; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 		BB937B82234258AD00490731 /* RARFDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				BB0BD79B225E1F7C00AA34FD /* RARFUserDefaults.swift */,
+				BB937B8323425A4C00490731 /* RARFUserDefaults.swift */,
 			);
 			path = RARFDefaults;
 			sourceTree = "<group>";
@@ -976,12 +976,12 @@
 				BBB9A9EA233616CA0037798E /* RARFStructure.swift in Sources */,
 				BBBA26DA225B3A91008AACFE /* RARFMutableComposition.swift in Sources */,
 				BBBA26D9225B3A91008AACFE /* RARFMaskVideoModel.swift in Sources */,
-				BB0BD79D225E23C900AA34FD /* RARFUserDefaults.swift in Sources */,
 				BBBA26DD225B3A91008AACFE /* RARFLineDashView.swift in Sources */,
 				BBBA26E0225B3A91008AACFE /* RARFImagePickerModel.swift in Sources */,
 				BBBA26D8225B3A91008AACFE /* RARFSliderView.swift in Sources */,
 				BB0BD7A1225E2FA700AA34FD /* RARFAlertController.swift in Sources */,
 				BBBA26DC225B3A91008AACFE /* RARFGestureObject.swift in Sources */,
+				BB937B8423425A4C00490731 /* RARFUserDefaults.swift in Sources */,
 				BBBA26DE225B3A91008AACFE /* RARFFocusView.swift in Sources */,
 				A1D4DF7C640C49AED689EEEC055A9A0D /* RARFSlider-dummy.m in Sources */,
 				BBBA26DB225B3A91008AACFE /* RARFAVPlayerModel.swift in Sources */,
