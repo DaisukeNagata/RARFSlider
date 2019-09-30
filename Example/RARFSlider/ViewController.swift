@@ -16,15 +16,13 @@ class ViewController: RARFPickerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        view.addSubview(sliderView ?? RARFSliderView())
-        sliderView?.rARFVc = self
+        sliderView = RARFSliderView()
         sliderView?.imagePick(vc: self, callBack: callBack)
     }
 
     func callBack() {
         sliderView?.removeFromSuperview()
-        sliderView = RARFSliderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        sliderView = RARFSliderView(frame: view.frame)
         view.addSubview(sliderView ?? RARFSliderView())
         sliderView?.rARFVc = self
         guard let url = url else  { return }
